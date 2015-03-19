@@ -1,0 +1,49 @@
+#-----------------------------------------#
+# Bash readline modifications
+#
+# To learn more, try "man bash" and search for readline
+#
+#
+#
+# \e = alt/option (You must enable alt as modifier in terminal preferences: Settings => Keyboard => Use option as meta key)
+# \C- = ctrl (Though I can't get this to work without using \e in conjunction currently)
+#----------------------------------------#
+
+# Make space key automagically expand variable args (like !! for entire last command, or !:n for nth argument from last command
+
+#Space: magic-space
+$if Bash
+    Space: magic-space
+$endif
+
+# Move forward and backward using
+# CTRL + [arrow left/right]
+
+"\e[5C": forward-word
+"\e[5D": backward-word
+
+
+# Grep through your history with mad skillz
+# eg: "ssh <arrow up/down>" would search through all of your ssh command history
+
+"\e[B": history-search-forward
+"\e[A": history-search-backward
+
+
+# Make tab completion more verbose
+# Also make it forget what capital letters are
+
+set show-all-if-ambiguous On
+set completion-ignore-case On
+
+
+# An automagic sudo experience.  
+# ALT+S to run that last command w/ sudo
+
+"\es": "sudo !! \r"
+
+
+# Pipe output of your command into less
+# Just type "CTRL+ALT+L" instead of return
+
+"\e\C-l":"\C-e | less\C-m"

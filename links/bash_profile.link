@@ -1,0 +1,11 @@
+source .aliases
+
+PS1="\e[0;31m[\#]\e[m \e[0;33m[\d\e[m \e[0;32m\t]\e[m\n\e[0;36m[\u]\e[m\e[0;35m[\h]\e[m[\w]\n"
+eval "$(rbenv init -)"
+homebrew=/usr/local/bin:/usr/local/sbin
+node=/usr/local/share/npm/bin
+#export PATH="$HOME/.rbenv/bin:$homebrew:$node:$PATH"
+
+#eval "$(rbenv init -)"
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH

@@ -1,0 +1,42 @@
+# General
+alias ls='ls -alFGT'
+alias pping="ping -a 8.8.8.8"
+alias ..="cd .."
+alias ll="ls"
+alias l="ls"
+alias tlf="tail -f"
+alias ln='ln -v'
+alias mkdir='mkdir -p'
+alias ...='../..'
+alias -g G='| grep'
+alias -g M='| less'
+alias -g L='| wc -l'
+
+#Git
+alias gp="git push"
+alias gphm="git push heroku master"
+alias gpsm="git push staging master"
+alias gppm="git push production master"
+alias ggraph="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias glol="git log --oneline --graph --decorate"
+
+# Capistrano
+alias cpd="cap production deploy"
+alias csd="cap staging deploy"
+
+# Ruby
+alias be="bundle exec"
+alias rake="bundle exec rake" 
+alias b="bundle"
+
+#Postgres
+alias pgstart='pg_ctl -l $PGDATA/server.log start'
+alias pgstop='pg_ctl stop -m fast'
+export PGDATA='/usr/local/var/postgres'
+export PGHOST='/tmp'
+
+# Node Webkit
+alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
+
+# Include custom aliases
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local

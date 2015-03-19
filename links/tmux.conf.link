@@ -1,0 +1,21 @@
+# Option to get pbcopy to work within tmux
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+set-option -g mouse-select-pane on
+set-option -g mouse-select-window on
+set -g mouse-resize-pane on
+set-window-option -g mode-mouse on
+setw -g mode-keys vi
+set -g default-terminal "screen-256color"
+
+  bind h select-pane -L
+  bind j select-pane -D
+  bind k select-pane -U
+  bind l select-pane -R
+
+source '/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf'
+
+set-option -g default-shell /bin/zsh
+
+# Local config
+if-shell "[ -f ~/.tmux.conf.local ]" 'source ~/.tmux.conf.local'
