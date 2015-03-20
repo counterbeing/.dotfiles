@@ -19,6 +19,12 @@ end
 
 def backup(file)
   if File.exist?(file)
-    FileUtils.mv(file, "#{file}_backup")
+    FileUtils.mv(file, "#{file}_backup_#{Time.now.to_i}")
+  end
+end
+
+def symlink_already_matchs(source, target)
+  if File.symlink?(target)
+    File.readlink(target) == source
   end
 end

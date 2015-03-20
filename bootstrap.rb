@@ -1,5 +1,6 @@
 #! /usr/bin/env ruby
 
+require 'fileutils'
 require 'pry'
 require './lib/methods.rb'
 

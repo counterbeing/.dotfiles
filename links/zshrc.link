@@ -4,7 +4,7 @@ export VISUAL=/usr/local/bin/vim
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="false"
 
-source ./antigen/antigen.zsh
+source ~/.dotfiles/submodules/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 # antigen theme crunch
