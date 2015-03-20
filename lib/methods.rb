@@ -17,3 +17,8 @@ if which("brew")
   INSTALLED_APPLICATIONS = Dir.entries("/Applications").join('').gsub(' ', '-').downcase
 end
 
+def backup(file)
+  if File.exist?(file)
+    FileUtils.mv(file, "#{file}_backup")
+  end
+end

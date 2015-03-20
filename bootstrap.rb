@@ -22,21 +22,21 @@ end
 
 def run_each_in_dir(dir)
   dir = ROOT + "/" + dir
-  excludes = ['.', '..', '.DS_Store']
-  entries = Dir.entries(dir)
-  entries = entries - excludes
+  entries = Dir.glob(dir + '/*.rb')
   entries.sort!
   entries.each do |e|
-    path = dir + "/" + e
-    require(path)
+    require(e)
   end
 end
 
 puts "#{Tty.blue}Installing brew. #{Tty.reset}"
-run_each_in_dir("osx/brew")
+# run_each_in_dir("osx/brew")
 
 puts "#{Tty.blue}Changing Mac OS and Application Preferences. #{Tty.reset}"
-run_each_in_dir("osx/prefs")
+# run_each_in_dir("osx/prefs")
 
 puts "#{Tty.blue}Configuring iTerm and zsh shell. #{Tty.reset}"
-run_each_in_dir("prezto")
+# run_each_in_dir("prezto")
+
+puts "#{Tty.blue}Configuring Vim. #{Tty.reset}"
+run_each_in_dir("links")

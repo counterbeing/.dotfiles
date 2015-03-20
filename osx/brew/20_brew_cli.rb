@@ -33,6 +33,7 @@ recipes = [
     "vim",                     # Best text editor ever
     "wget",                    # Curl alternative, some things use it 
     "zsh",                     # Like bash, but way better
+    "zsh-completions",         # Various zsh completions
     "zsh-syntax-highlighting"  # syntax highlighting as you type
 ]
 
