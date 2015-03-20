@@ -1,5 +1,8 @@
 #! /usr/bin/env ruby
 
+require 'pry'
+require './lib/methods.rb'
+
 ROOT = File.expand_path File.dirname(__FILE__) + "/"
 
 module Tty extend self
@@ -25,7 +28,8 @@ def run_each_in_dir(dir)
   entries.sort!
   entries.each do |e|
     path = dir + "/" + e
-    system("sh #{path}")
+    # system("sh #{path}")
+    require(path)
   end
 end
 
