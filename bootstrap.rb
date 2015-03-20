@@ -3,7 +3,7 @@
 require 'pry'
 require './lib/methods.rb'
 
-ROOT = File.expand_path File.dirname(__FILE__) + "/"
+ROOT = File.expand_path File.dirname(__FILE__)
 
 module Tty extend self
   def blue; bold 34; end
@@ -21,7 +21,7 @@ unless `uname`.chomp == "Darwin"
 end
 
 def run_each_in_dir(dir)
-  dir = ROOT + dir
+  dir = ROOT + "/" + dir
   excludes = ['.', '..', '.DS_Store']
   entries = Dir.entries(dir)
   entries = entries - excludes
@@ -32,8 +32,11 @@ def run_each_in_dir(dir)
   end
 end
 
-puts "#{Tty.blue}Installing brew! #{Tty.reset}"
-run_each_in_dir("/osx/brew")
+puts "#{Tty.blue}Installing brew. #{Tty.reset}"
+run_each_in_dir("osx/brew")
 
-puts "#{Tty.blue}Installing brew! #{Tty.reset}"
-run_each_in_dir("/osx/prefs")
+puts "#{Tty.blue}Changing Mac OS and Application Preferences. #{Tty.reset}"
+run_each_in_dir("osx/prefs")
+
+puts "#{Tty.blue}Configuring iTerm and zsh shell. #{Tty.reset}"
+run_each_in_dir("prezto")

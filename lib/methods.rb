@@ -9,6 +9,7 @@ def which(cmd)
   return nil
 end
 
+HOME = File.expand_path('~')
 if which("brew")
   INSTALLED_CASK_RECIPES =  `brew cask list`
   INSTALLED_RECIPES =  `brew list`
