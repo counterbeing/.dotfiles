@@ -1,10 +1,10 @@
-puts "Installing Brew packages"
+puts "#{Tty.blue}Installing Brew packages...#{Tty.reset}"
 
 recipes = [
     "ack",                     # Search inside of files
     "ansible",                 # System configuration/management
     "bash",                    # Updated bash
-    "boris",                   # PHP shell
+    "boris",                   # Interactive PHP repl
     "clamav",                  # Antivirus
     "cmake",                   # Compiler
     "ctags",                   # Tagging for Vim
@@ -15,7 +15,7 @@ recipes = [
     "gnupg",                   # For securing messages
     "htop-osx",                # Activity monitor
     "imagemagick",             # Image manipulation
-    "mosh",                    # SSH like client for low quality connections
+    "mobile-shell",            # SSH like client for low quality connections aka mosh
     "ngrok",                   # Port forwarder
     "node",                    # Node.js
     "openssl",                 # Patched OpenSSL for latest security releases

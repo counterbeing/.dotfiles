@@ -1,4 +1,4 @@
-puts "installing fonts..."
+puts "#{Tty.blue}Installing fonts...#{Tty.reset}"
 
 recipes = [
   'font-meslo-lg-for-powerline',  # Used in terminal
