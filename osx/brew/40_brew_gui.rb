@@ -1,6 +1,7 @@
 puts "#{Tty.blue}Installing brew GUI applications...#{Tty.reset}" 
 
 recipes = [
+    "1password",       # Password manager
     "adapter",         # Media converter
     "adium",           # Chat client
     "alfred",          # App and file launcher
@@ -16,13 +17,13 @@ recipes = [
     "hipchat",         # Business chat client
     "iterm2",          # Better terminal
     "little-snitch",   # Newtwork monitor and firewall
+    "mou",             # Markdown editor
+    "omnidisksweeper", # See whats using disk space in a GUI
     "omnifocus",       # Task managment
-    "1password",       # Password manager
     "qlstephen",       # Quicklook for files without extension
     "quicklook-csv",   # Quicklook for csv files
     "quicklook-json",  # Quicklook for JSON files
     "sequel-pro",      # Postgres DB admin and viewing schema
-    "omnidisksweeper", # See whats using disk space in a GUI
     "skype",           # Chat and calls
     "slack",           # Business chat client
     "spectacle",       # Resize windows quickly
@@ -31,7 +32,6 @@ recipes = [
     "transmit",        # FTP Client
     "vlc"              # Video player
 ]
-
 
 recipes.each do |r|
   unless INSTALLED_CASK_RECIPES.include?(r) || INSTALLED_APPLICATIONS.include?(r)

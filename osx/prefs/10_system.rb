@@ -1,8 +1,3 @@
-#!/usr/bin/env bash
-
-# Turn off "Play feedback when volume is changed"
-`defaults write -g "com.apple.sound.beep.feedback" -int 0`
- 
 ###############################################################################
 # Finder #
 # ###############################################################################
@@ -31,7 +26,11 @@
 # Don’t display the annoying prompt when quitting iTerm
 `defaults write com.googlecode.iterm2 PromptOnQuit -bool false`
 
-###############################################################################
+# Turn off "Play feedback when volume is changed"
+`defaults write -g "com.apple.sound.beep.feedback" -int 0`
+
+
+################################################################################
 # Time Machine                                                                #
 ###############################################################################
 
@@ -40,7 +39,6 @@
 
 # Disable local Time Machine backups
 `hash tmutil &> /dev/null && sudo tmutil disablelocal`
- 
 
 ###############################################################################
 # Address Book, Dashboard, iCal, TextEdit, and Disk Utility                   #
@@ -53,6 +51,7 @@
 `defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true`
 `defaults write com.apple.DiskUtility advanced-image-options -bool true`
 
+
 ###############################################################################
 # Mac App Store                                                               #
 ###############################################################################
@@ -63,37 +62,4 @@
 # Enable Debug Menu in the Mac App Store
 `defaults write com.apple.appstore ShowDebugMenu -bool true`
 
-
-###############################################################################
-# Messages                                                                    #
-###############################################################################
-
-# Disable automatic emoji substitution (i.e. use plain text smileys)
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticEmojiSubstitutionEnablediMessage" -bool false
-
-# Disable smart quotes as it’s annoying for messages that contain code
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "automaticQuoteSubstitutionEnabled" -bool false
-
-# Disable continuous spell checking
-defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
-
-###############################################################################
-# GPGMail 2                                                                   #
-###############################################################################
-
-# Disable signing emails by default
-defaults write ~/Library/Preferences/org.gpgtools.gpgmail SignNewEmailsByDefault -bool false
-
-
-
-###############################################################################
-# Kill affected applications                                                  #
-###############################################################################
-
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-  "Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "Spectacle" \
-  "SystemUIServer" "Terminal" "Transmission" "Twitter"; do
-  killall "${app}" > /dev/null 2>&1
-done
-echo "Done. Note that some of these changes require a logout/restart to take effect."
 

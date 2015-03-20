@@ -28,10 +28,12 @@ def run_each_in_dir(dir)
   entries.sort!
   entries.each do |e|
     path = dir + "/" + e
-    # system("sh #{path}")
     require(path)
   end
 end
 
 puts "#{Tty.blue}Installing brew! #{Tty.reset}"
 run_each_in_dir("/osx/brew")
+
+puts "#{Tty.blue}Installing brew! #{Tty.reset}"
+run_each_in_dir("/osx/prefs")
