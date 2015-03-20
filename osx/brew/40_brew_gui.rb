@@ -17,7 +17,7 @@ recipes = [
     "iterm2",          # Better terminal
     "little-snitch",   # Newtwork monitor and firewall
     "omnifocus",       # Task managment
-    "1password",     # Password manager
+    "1password",       # Password manager
     "qlstephen",       # Quicklook for files without extension
     "quicklook-csv",   # Quicklook for csv files
     "quicklook-json",  # Quicklook for JSON files
