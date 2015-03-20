@@ -1,0 +1,56 @@
+export EDITOR=/usr/local/bin/vim
+export VISUAL=/usr/local/bin/vim
+
+# Set to this to use case-sensitive completion
+CASE_SENSITIVE="false"
+
+source ./antigen/antigen.zsh
+
+antigen use oh-my-zsh
+# antigen theme crunch
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundles <<EOBUNDLES
+  robbyrussell/oh-my-zsh
+  # robbyrussell/oh-my-zsh plugins/brew-cask
+  bower
+  capistrano
+  colored-man
+  command-not-found
+  gem
+  git
+  git-extras
+  grunt
+  npm
+  themes
+  tmux
+  zsh-users/zsh-completions src
+  zsh-users/zsh-syntax-highlighting
+EOBUNDLES
+
+# For zsh completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+# My custom theme
+antigen theme counterbeing/cory-crunch-theme
+
+zstyle ':completion:::git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
+fpath=(/usr/local/share/zsh/site-functions $fpath)
+
+# Customize to your needs...
+source ~/.aliases
+
+# Start rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+  
+# Add homebrew to the completion path
+fpath=("/usr/local/bin/" $fpath)
+
+# Fixes issues with too many threads
+ulimit -n 10240
+ 
+# Add node path
+export NODE_PATH=/usr/local/share/npm/lib/node_modules
+export PATH="/usr/local/share/npm/bin:$PATH"
+
