@@ -1,3 +1,4 @@
+#! /usr/bin/env ruby
 def which(cmd)
   exts = ENV['PATHEXT'] ? ENV['PATHEXT'].split(';') : ['']
   ENV['PATH'].split(File::PATH_SEPARATOR).each do |path|
@@ -26,5 +27,15 @@ end
 def symlink_already_matchs(source, target)
   if File.symlink?(target)
     File.readlink(target) == source
+  end
+end
+
+# Source is orginial file, target is where the link goes
+def make_link_where_appropriate(source, target)
+  unless symlink_already_matchs(source, target)
+    backup(target)
+    FileUtils.symlink(source, target, verbose: true)
+  else
+    puts "#{target} is already set"
   end
 end
