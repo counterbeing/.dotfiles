@@ -2,13 +2,13 @@ puts "#{Tty.blue}Installing fonts...#{Tty.reset}"
 
 recipes = [
   'font-meslo-lg-for-powerline',  # Used in terminal
-  'font-m-plus', 
+  'font-m-plus',
   'font-clear-sans',
   'font-roboto'
 ]
 
 recipes.each do |r|
-  unless INSTALLED_CASK_RECIPES.include?(r) 
+  unless INSTALLED_CASK_RECIPES.include?(r)
     puts "    installing #{r}"
     `brew cask install #{r}`
   else

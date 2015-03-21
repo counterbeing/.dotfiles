@@ -1,4 +1,4 @@
-puts "#{Tty.blue}Installing brew GUI applications...#{Tty.reset}" 
+puts "#{Tty.blue}Installing brew GUI applications...#{Tty.reset}"
 
 recipes = [
     "1password",       # Password manager
@@ -37,7 +37,7 @@ recipes = [
 recipes.each do |r|
   unless INSTALLED_CASK_RECIPES.include?(r) || INSTALLED_APPLICATIONS.include?(r)
     puts "    installing #{r}"
-    `brew cask install --appdir="/Applications" #{r}` 
+    `brew cask install --appdir="/Applications" #{r}`
   else
     puts "    skipping #{r}"
   end

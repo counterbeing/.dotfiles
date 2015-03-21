@@ -12,7 +12,8 @@ antigen use oh-my-zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundles <<EOBUNDLES
   robbyrussell/oh-my-zsh
-  # robbyrussell/oh-my-zsh plugins/brew-cask
+  robbyrussell/oh-my-zsh plugins/brew
+  robbyrussell/oh-my-zsh plugins/brew-cask
   bower
   capistrano
   colored-man

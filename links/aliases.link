@@ -26,7 +26,7 @@ alias csd="cap staging deploy"
 
 # Ruby
 alias be="bundle exec"
-alias rake="bundle exec rake" 
+alias rake="bundle exec rake"
 alias b="bundle"
 
 #Postgres
@@ -42,31 +42,31 @@ alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
 
 # Pick
-function pihist 
+function pihist
 {
   $(history 0 | cut -c8- | sort -u | pick)
 }
 
 # Run a rake task
-function pirake 
+function pirake
 {
   rake $(rake -T | cut -f2 -d' ' | pick)
 }
 
 # Run kill on a process
-function pikill 
+function pikill
 {
   kill $(ps -e | awk '{if(NR!=1) { print $4, $1 }}' | pick -do | tail -n +2)
 }
 
 # Run kill -9 on a selected process
-function pikill9 
+function pikill9
 {
   kill -9 $(ps -e | awk '{if(NR!=1) { print $4, $1 }}' | pick -do | tail -n +2)
 }
 
 # Check out a git branch
-function pigco 
+function pigco
 {
   git checkout $(git branch | cut -c 3- | pick)
 }
