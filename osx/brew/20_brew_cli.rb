@@ -21,6 +21,7 @@ recipes = [
     "openssl",                 # Patched OpenSSL for latest security releases
     "pick",                    # Search multiline strings fuzzily
     "postgresql",              # Database for local servers
+    "python",                  # Recent python
     "qt",                      # used in headless browser testing 
     "rbenv",                   # A ruby version manager
     "ssh-copy-id",             # Copies ssh keys and puts in authorized on remote host

@@ -1,0 +1,1 @@
+`pip install powerline-status`
