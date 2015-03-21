@@ -31,13 +31,16 @@ def run_each_in_dir(dir)
 end
 
 puts "#{Tty.blue}Installing brew. #{Tty.reset}"
-# run_each_in_dir("osx/brew")
+run_each_in_dir("osx/brew")
 
 puts "#{Tty.blue}Changing Mac OS and Application Preferences. #{Tty.reset}"
-# run_each_in_dir("osx/prefs")
+run_each_in_dir("osx/prefs")
 
-puts "#{Tty.blue}Configuring iTerm and zsh shell. #{Tty.reset}"
-# run_each_in_dir("prezto")
+puts "#{Tty.blue}Creating links to dotfiles in home dir. #{Tty.reset}"
+run_each_in_dir("links")
+
+puts "#{Tty.blue}Enabling .gitignore global. #{Tty.reset}"
+run_each_in_dir("osx/git")
 
 puts "#{Tty.blue}Configuring Vim. #{Tty.reset}"
-run_each_in_dir("links")
+run_each_in_dir("vim")

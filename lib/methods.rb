@@ -19,11 +19,13 @@ if which("brew")
 end
 
 def backup(file)
+  puts "backing up #{file}"
   if File.exist?(file)
     FileUtils.mv(file, "#{file}_backup_#{Time.now.to_i}")
   end
 end
 
+# Check to see if the symlink even needs to be replaced
 def symlink_already_matchs(source, target)
   if File.symlink?(target)
     File.readlink(target) == source
