@@ -41,3 +41,10 @@ def make_link_where_appropriate(source, target)
     puts "#{target} is already set"
   end
 end
+
+def copy_file_with_backup(source, target)
+  if File.exist?(target)
+    backup(target)
+  end
+  FileUtils.cp(source, target)
+end

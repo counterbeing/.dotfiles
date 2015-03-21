@@ -9,5 +9,5 @@ files = Dir.glob(prefs_source + "/*.plist")
 files.each do |file|
   filename = /\/([^\/]+.plist)$/.match(file)[1]
   destination = prefs_destination + "/" + filename
-  make_link_where_appropriate(file, destination)
+  copy_file_with_backup(file, destination)
 end
