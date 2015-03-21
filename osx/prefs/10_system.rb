@@ -20,12 +20,6 @@
 # # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
 `defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"`
 
-# Install the Solarized Dark theme for iTerm
-`open "#{HOME}/init/Solarized Dark.itermcolors"`
-
-# Don’t display the annoying prompt when quitting iTerm
-`defaults write com.googlecode.iterm2 PromptOnQuit -bool false`
-
 # Turn off "Play feedback when volume is changed"
 `defaults write -g "com.apple.sound.beep.feedback" -int 0`
 

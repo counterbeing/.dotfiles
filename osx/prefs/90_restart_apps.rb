@@ -1,9 +1,10 @@
+puts "Restarting applications with changed prefs..."
+
 apps = [
   "Activity Monitor", 
   "Address Book", 
   "Calendar", 
   "Contacts", 
-  "cfprefsd",
   "Dock", 
   "Finder", 
   "Mail", 
@@ -11,7 +12,6 @@ apps = [
   "Safari", 
   "Spectacle", 
   "SystemUIServer", 
-  "Terminal", 
   "Transmission", 
   "Twitter"
 ]
