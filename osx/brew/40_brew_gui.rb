@@ -7,6 +7,7 @@ recipes = [
     "alfred",          # App and file launcher
     "aviator",         # Browser without history
     "caffeine",        # Keep your computer awake
+    "cocoarestclient", # Simple REST client GUI
     "colloquy",        # IRC Client
     "cyberduck",       # FTP Client
     "dash",            # Documentation lookup
