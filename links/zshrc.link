@@ -4,8 +4,25 @@ export VISUAL=/usr/local/bin/vim
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="false"
 
-source ~/.dotfiles/submodules/antigen/antigen.zsh
+#----------------------------------------------------------#
+# Completions
+# If completions are bugging you, you may need to run
+# rm -f ~/.zcompdump; compinit
+#----------------------------------------------------------#
 
+zstyle ':completion:::git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
+
+# Add homebrew to the completion path
+fpath=("/usr/local/bin/" $fpath)
+
+# For zsh completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+#----------------------------------------------------------#
+# Antigen
+# Git based package management for Zsh
+#----------------------------------------------------------#
+source ~/.dotfiles/submodules/antigen/antigen.zsh
 antigen use oh-my-zsh
 # antigen theme crunch
 
@@ -29,29 +46,28 @@ antigen bundles <<EOBUNDLES
   zsh-users/zsh-syntax-highlighting
 EOBUNDLES
 
-# For zsh completions
-fpath=(/usr/local/share/zsh-completions $fpath)
-
-# My custom theme
+# My [slightly] custom theme
 antigen theme counterbeing/cory-crunch-theme
 
-zstyle ':completion:::git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
-fpath=(/usr/local/share/zsh/site-functions $fpath)
-
+#----------------------------------------------------------#
+# Custom includes
 # Customize to your needs...
+#----------------------------------------------------------#
 source ~/.aliases
 
+#----------------------------------------------------------#
+# PATH Settings
+#----------------------------------------------------------#
+
+# Add node path
+export NODE_PATH=/usr/local/share/npm/lib/node_modules
+export PATH="/usr/local/share/npm/bin:$PATH"
+  
 # Start rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-  
-# Add homebrew to the completion path
-fpath=("/usr/local/bin/" $fpath)
+
 
 # Fixes issues with too many threads
 ulimit -n 10240
  
-# Add node path
-export NODE_PATH=/usr/local/share/npm/lib/node_modules
-export PATH="/usr/local/share/npm/bin:$PATH"
-
