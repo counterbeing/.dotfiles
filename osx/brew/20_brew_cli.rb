@@ -5,7 +5,7 @@ recipes = [
     "ansible",                 # System configuration/management
     "Caskroom/cask/osxfuse",   # For mounting filesystems, use this alternate source because of kexts
     "bash",                    # Updated bash
-    "boris",                   # Interactive PHP repl
+    # "boris",                   # Interactive PHP repl
     "clamav",                  # Antivirus
     "cmake",                   # Compiler
     "ctags",                   # Tagging for Vim
@@ -25,6 +25,7 @@ recipes = [
     "python",                  # Recent python
     "qt",                      # used in headless browser testing
     "rbenv",                   # A ruby version manager
+    "ruby-build",              # Build ruby versions for rbenv
     "ssh-copy-id",             # Copies ssh keys and puts in authorized on remote host
     "sshfs",                   # Mount a filesystem over ssh using osxfuse
     "the_silver_searcher",     # Fast file searching
