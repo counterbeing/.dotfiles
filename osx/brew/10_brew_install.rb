@@ -1,6 +1,6 @@
 unless which("brew")
     puts "Installing homebrew"
-    system('ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"')
+    system('ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
 end
 
 
