@@ -13,6 +13,9 @@ recipes = [
     "ffmpeg",                  # Media encoding
     "ghostscript",             # PDF support for imagemagick
     "git",                     # Version control
+    "git-flow",                # 
+    "memcached",
+    "vagrant",
     "gnupg",                   # For securing messages
     "htop-osx",                # Activity monitor
     "imagemagick",             # Image manipulation
