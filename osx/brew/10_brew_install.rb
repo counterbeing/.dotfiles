@@ -1,5 +1,5 @@
 unless which("brew")
-    echo "Installing homebrew"
+    puts "Installing homebrew"
     system('ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"')
 end
 

@@ -1,7 +1,6 @@
 #! /usr/bin/env ruby
 
 require 'fileutils'
-require 'pry'
 require './lib/methods.rb'
 
 ROOT = File.expand_path File.dirname(__FILE__)
