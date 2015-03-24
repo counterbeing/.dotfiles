@@ -11,6 +11,7 @@ recipes = [
     "colloquy",        # IRC Client
     "cyberduck",       # FTP Client
     "dash",            # Documentation lookup
+    "dropbox",         # Documentation lookup
     "fing",            # Network scanner
     "firefox",         # browser
     "google-chrome",   # Best browser
