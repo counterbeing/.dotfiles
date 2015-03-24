@@ -34,7 +34,8 @@ recipes = [
     "transmit",        # FTP Client
     "vagrant",         # Configurations for virtual machines
     "virtualbox",      # Run VMs for things like vagrant
-    "vlc"              # Video player
+    "vlc",             # Video player
+    "xquartz"          # For headless browser testing, and other things
 ]
 
 recipes.each do |r|
