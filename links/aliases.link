@@ -42,13 +42,13 @@ alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
 
 # Pick
-function pihist
+function phist
 {
   $(history | cut -c8- | sort -u | pick)
 }
 
 # Run a rake task
-function pirake
+function prake
 {
   rake $(rake -T | cut -f2 -d' ' | pick)
 }

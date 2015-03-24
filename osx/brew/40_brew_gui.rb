@@ -32,6 +32,7 @@ recipes = [
     "transmission",    # Torrent client
     "transmit",        # FTP Client
     "vagrant",         # Configurations for virtual machines
+    "virtualbox",      # Run VMs for things like vagrant
     "vlc"              # Video player
 ]
 
