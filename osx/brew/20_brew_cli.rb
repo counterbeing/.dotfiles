@@ -31,6 +31,7 @@ recipes = [
     "ssh-copy-id",                # Copies ssh keys and puts in authorized on remote host
     "sshfs",                      # Mount a filesystem over ssh using osxfuse
     "the_silver_searcher",        # Fast file searching
+    "tig",                     # Beautiful git visualization
     "tmate",                      # Easy remote pair sessions
     "tmux",                       # Terminal multiplexer, great for pairing
     "tmux-cssh",                  # SSH into multiple computers
