@@ -14,6 +14,7 @@ recipes = [
     "ghostscript",             # PDF support for imagemagick
     "git",                     # Version control
     "git-flow",                # 
+    "tig",                     # Beautiful git visualization
     "memcached",
     "vagrant",
     "gnupg",                   # For securing messages
