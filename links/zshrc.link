@@ -24,7 +24,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 #----------------------------------------------------------#
 source ~/.dotfiles/submodules/antigen/antigen.zsh
 antigen use oh-my-zsh
-# antigen theme crunch
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundles <<EOBUNDLES
@@ -65,8 +64,7 @@ export PATH="/usr/local/share/npm/bin:$PATH"
   
 # Start rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
+eval "$(rbenv init - zsh)"
 
 # Fixes issues with too many threads
 ulimit -n 10240

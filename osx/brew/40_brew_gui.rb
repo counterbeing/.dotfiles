@@ -31,6 +31,7 @@ recipes = [
     "torbrowser",      # Anonymous browser
     "transmission",    # Torrent client
     "transmit",        # FTP Client
+    "vagrant",         # Configurations for virtual machines
     "vlc"              # Video player
 ]
 

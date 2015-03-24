@@ -1,7 +1,20 @@
 ###############################################################################
 # Finder #
 # ###############################################################################
+
+
+# Menu bar: show battery percentage
+`defaults write com.apple.menuextra.battery ShowPercent -string "YES"`
+
+# Expand print panel by default
+`defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true`
  
+# Save to disk (not to iCloud) by default
+`defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false`
+
+# Disable the “Are you sure you want to open this application?” dialog
+# `defaults write com.apple.LaunchServices LSQuarantine -bool false`
+
 `defaults write com.apple.finder CreateDesktop -bool false`
  
 # Finder: show path bar
@@ -15,6 +28,10 @@
  
 # Disable the warning when changing a file extension
 `defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false`
+
+
+# Finder: show all filename extensions
+`defaults write NSGlobalDomain AppleShowAllExtensions -bool true`
  
 # Use list view in all Finder windows by default
 # # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
@@ -23,6 +40,32 @@
 # Turn off "Play feedback when volume is changed"
 `defaults write -g "com.apple.sound.beep.feedback" -int 0`
 
+# Menu bar: hide the Time Machine and User icons
+`defaults write ~/Library/Preferences/ByHost/com.apple.systemuiserver.* dontAutoLoad -array \
+   "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+   "/System/Library/CoreServices/Menu Extras/User.menu" `
+
+# Developer CrashReport dialog type
+`defaults write com.apple.CrashReporter DialogType developer`
+
+
+# Trackpad: enable tap to click for this user and for the login screen
+`defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true`
+`defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1`
+`defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1`
+
+
+# Enable snap-to-grid for icons on the desktop and in other icon views
+`/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist`
+`/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist`
+`/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist`
+
+# Show the ~/Library folder
+`chflags nohidden ~/Library`
+
+# Enable full keyboard access for all controls
+# # (e.g. enable Tab in modal dialogs)
+`defaults write NSGlobalDomain AppleKeyboardUIMode -int 3`
 
 ################################################################################
 # Time Machine                                                                #
