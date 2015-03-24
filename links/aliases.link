@@ -44,7 +44,7 @@ alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
 # Pick
 function pihist
 {
-  $(history 0 | cut -c8- | sort -u | pick)
+  $(history | cut -c8- | sort -u | pick)
 }
 
 # Run a rake task
