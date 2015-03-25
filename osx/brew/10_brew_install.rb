@@ -5,6 +5,9 @@ else
   `brew update`
 end
 
+# Set permissions on the brew folder
+puts 'Setting you as owner on /usr/local'
+`sudo chown -R "$USER":admin /usr/local`
 
 `brew tap caskroom/fonts`              # fonts
 `brew tap thoughtbot/formulae`         # pick
@@ -14,6 +17,5 @@ end
 INSTALLED_CASK_RECIPES =  `brew cask list`
 INSTALLED_RECIPES =  `brew list`
 INSTALLED_TAPS = `brew taps`
-INSTALLED_APPLICATIONS = Dir.entries("/Applications").join('').gsub(' ', '-').downcase
 
 

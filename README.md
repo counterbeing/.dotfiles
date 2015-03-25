@@ -17,7 +17,7 @@ ruby bootstrap.rb
 There are a few odds and ends that are too custom or private for a github repo. You might think about moving these.
 
 - ~/.ssh
-j ~/.gnupg
+- ~/.gnupg
 - ~/.gitconfig
 
 ### Warranty
