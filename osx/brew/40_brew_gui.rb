@@ -12,7 +12,9 @@ recipes = [
     "dropbox",         # Documentation lookup
     "firefox",         # browser
     "google-chrome",   # Best browser
-    "gpgtools",        # Secure GPG Email through Apple Mail
+    # GPGTools seems to halt execution and fail
+    # I'm hoping this is fixed some time soon
+    # "gpgtools",        # Secure GPG Email through Apple Mail
     "iterm2",          # Better terminal
     "little-snitch",   # Newtwork monitor and firewall
     "mou",             # Markdown editor
