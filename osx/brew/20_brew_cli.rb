@@ -9,14 +9,12 @@ recipes = [
     "cmake",                      # Compiler
     "ctags",                      # Tagging for Vim
     "curl",                       # Updated
-    "ffmpeg",                     # Media encoding
     "ghostscript",                # PDF support for imagemagick
     "git",                        # Version control
     "git-flow",                   #
     "gnupg",                      # For securing messages
     "htop-osx",                   # Activity monitor
     "imagemagick",                # Image manipulation
-    "memcached",
     "mobile-shell",               # SSH like client for low quality connections aka mosh
     "ngrok",                      # Port forwarder
     "node",                       # Node.js
@@ -31,7 +29,7 @@ recipes = [
     "ssh-copy-id",                # Copies ssh keys and puts in authorized on remote host
     "sshfs",                      # Mount a filesystem over ssh using osxfuse
     "the_silver_searcher",        # Fast file searching
-    "tig",                     # Beautiful git visualization
+    "tig",                        # Beautiful git visualization
     "tmate",                      # Easy remote pair sessions
     "tmux",                       # Terminal multiplexer, great for pairing
     "tmux-cssh",                  # SSH into multiple computers

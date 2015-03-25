@@ -5,23 +5,20 @@ recipes = [
     "adapter",         # Media converter
     "adium",           # Chat client
     "alfred",          # App and file launcher
-    "aviator",         # Browser without history
-    "caffeine",        # Keep your computer awake
     "cocoarestclient", # Simple REST client GUI
     "colloquy",        # IRC Client
     "cyberduck",       # FTP Client
     "dash",            # Documentation lookup
     "dropbox",         # Documentation lookup
-    "fing",            # Network scanner
     "firefox",         # browser
     "google-chrome",   # Best browser
     "gpgtools",        # Secure GPG Email through Apple Mail
-    "hipchat",         # Business chat client
     "iterm2",          # Better terminal
     "little-snitch",   # Newtwork monitor and firewall
     "mou",             # Markdown editor
     "omnidisksweeper", # See whats using disk space in a GUI
     "omnifocus",       # Task managment
+    "propane",         # Chat client
     "qlstephen",       # Quicklook for files without extension
     "quicklook-csv",   # Quicklook for csv files
     "quicklook-json",  # Quicklook for JSON files
