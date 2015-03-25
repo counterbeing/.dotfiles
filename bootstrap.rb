@@ -4,6 +4,7 @@ require 'fileutils'
 require './lib/methods.rb'
 
 ROOT = File.expand_path File.dirname(__FILE__)
+INSTALLED_APPLICATIONS = Dir.entries("/Applications").join('').gsub(' ', '-').downcase
 
 module Tty extend self
   def blue; bold 34; end

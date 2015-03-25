@@ -8,7 +8,7 @@ recipes = [
     "cocoarestclient", # Simple REST client GUI
     "colloquy",        # IRC Client
     "cyberduck",       # FTP Client
-    "dash",            # Documentation lookup
+    # "dash",            # Documentation lookup
     "dropbox",         # Documentation lookup
     "firefox",         # browser
     "google-chrome",   # Best browser
