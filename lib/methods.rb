@@ -11,13 +11,6 @@ def which(cmd)
 end
 
 HOME = File.expand_path('~')
-if which("brew")
-  INSTALLED_CASK_RECIPES =  `brew cask list`
-  INSTALLED_RECIPES =  `brew list`
-  INSTALLED_TAPS = `brew taps`
-  INSTALLED_APPLICATIONS = Dir.entries("/Applications").join('').gsub(' ', '-').downcase
-end
-
 def backup(file)
   puts "backing up #{file}"
   if File.exist?(file)
