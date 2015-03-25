@@ -12,6 +12,14 @@ cd .dotfiles
 ruby bootstrap.rb
 ```
 
+## Don't Forget
+
+There are a few odds and ends that are too custom or private for a github repo. You might think about moving these.
+
+- ~/.ssh
+- ~/.gnupg
+- ~/.gitconfig
+
 ### Warranty
 
 There is none. If you have custom configurations on our system, you need to look at all of the code to be sure this doesn't do something you don't like.

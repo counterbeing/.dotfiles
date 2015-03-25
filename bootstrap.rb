@@ -38,6 +38,9 @@ run_each_in_dir("osx/prefs")
 puts "#{Tty.blue}Creating links to dotfiles in home dir. #{Tty.reset}"
 run_each_in_dir("links")
 
+puts "#{Tty.blue}Installing rubies... #{Tty.reset}"
+run_each_in_dir("osx/rbenv")
+
 puts "#{Tty.blue}Enabling .gitignore global. #{Tty.reset}"
 run_each_in_dir("osx/git")
 
