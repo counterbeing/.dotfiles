@@ -10,3 +10,5 @@ zeus.json
 .envrc
 .bundle
 *.log
+
+tags
