@@ -26,10 +26,17 @@ There is none. If you have custom configurations on our system, you need to look
 
 
 ### Todo
- - Remove 1p mini from menu bar
- - enable 1p in alfred
- - disable autosubmit in 1p
- - Set sync folder
- - Add casks dir to alfred search
- - Don't make google chrome ask to save passwords... unless HTTP Basic auth
- 
+- Remove 1p mini from menu bar
+- enable 1p in alfred
+- disable autosubmit in 1p
+- Set sync folder
+- Add casks dir to alfred search
+- Don't make google chrome ask to save passwords... unless HTTP Basic auth
+- Look into rbenv plugin to avoid rehash
+- Think about installing default gems
+
+### Done
+Mar 25, 2015
+- Cask installers need to look for the `.app` extension for a match
+- Set owner on /usr/local
+- Setting global for brew installation should happen after brew installs
