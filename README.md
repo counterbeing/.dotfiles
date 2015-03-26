@@ -26,7 +26,12 @@ There is none. If you have custom configurations on our system, you need to look
 
 
 ### Todo
+- Look into rbenv plugin to avoid rehash
+- Think about installing default gems
+
+### Done
+Mar 25, 2015
 - Cask installers need to look for the `.app` extension for a match
-- Set permissions on /usr/local
+- Set owner on /usr/local
 - Setting global for brew installation should happen after brew installs
 
