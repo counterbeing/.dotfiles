@@ -17,7 +17,7 @@ recipes = [
     # "gpgtools",        # Secure GPG Email through Apple Mail
     "iterm2",          # Better terminal
     "little-snitch",   # Newtwork monitor and firewall
-    "mou",             # Markdown editor
+    "macdown",         # Markdown editor
     "omnidisksweeper", # See whats using disk space in a GUI
     "omnifocus",       # Task managment
     "propane",         # Chat client
