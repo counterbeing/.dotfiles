@@ -1,4 +1,4 @@
-# Welcome to .dotfiles
+j Welcome to .dotfiles
 
 Feel free to take my dotfiles for a spin.
 
@@ -34,6 +34,7 @@ There is none. If you have custom configurations on our system, you need to look
 - Don't make google chrome ask to save passwords... unless HTTP Basic auth
 - Look into rbenv plugin to avoid rehash
 - Think about installing default gems
+- Generate `.local_config` file if it does not exist
 
 ### Done
 Mar 25, 2015
