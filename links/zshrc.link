@@ -68,4 +68,10 @@ eval "$(rbenv init - zsh)"
 
 # Fixes issues with too many threads
 ulimit -n 10240
- 
+
+# Load local configuration file if it exists, this is a away of extending
+# this configuration, without commiting changes that could include 
+# sensitive environment variables, or just things that won't be usefule
+# anywhere else. This file will be created for you if it does not already
+# exist.
+[ -f ~/.local_config ] && source ~/.local_config
