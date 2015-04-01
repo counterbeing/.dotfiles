@@ -28,6 +28,7 @@ recipes = [
     "ruby-build",                 # Build ruby versions for rbenv
     "ssh-copy-id",                # Copies ssh keys and puts in authorized on remote host
     "sshfs",                      # Mount a filesystem over ssh using osxfuse
+    "terminal-notifier",          # Send notifications to notification center
     "the_silver_searcher",        # Fast file searching
     "tig",                        # Beautiful git visualization
     "tmate",                      # Easy remote pair sessions
