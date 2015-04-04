@@ -5,6 +5,7 @@ recipes = [
     "adapter",         # Media converter
     "adium",           # Chat client
     "alfred",          # App and file launcher
+    "atom",            # A free GUI text editor... sometimes you want a GUI
     "cocoarestclient", # Simple REST client GUI
     "colloquy",        # IRC Client
     "cyberduck",       # FTP Client
