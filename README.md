@@ -1,5 +1,3 @@
-j Welcome to .dotfiles
-
 Feel free to take my dotfiles for a spin.
 
 ## Getting Started
@@ -13,6 +11,11 @@ ruby bootstrap.rb
 ```
 
 ## Don't Forget
+There are a few things that these scripts will replace, or make significant changes to. You just need to be aware of that and act accordingly
+
+- Replaces your iTerm preferences
+- Sets Zsh as your default shell (just try it, it's easy to change.)
+- A few other things, just read the code.
 
 There are a few odds and ends that are too custom or private for a github repo. You might think about moving these.
 
