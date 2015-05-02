@@ -66,6 +66,9 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
+# sbin path for brew
+export PATH="/usr/local/sbin:$PATH"
+
 # Fixes issues with too many threads
 ulimit -n 10240
 
