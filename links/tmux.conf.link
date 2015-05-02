@@ -4,6 +4,34 @@ set-option -g default-command "reattach-to-user-namespace -l zsh"
 # use vim keybindings in copy mode
 setw -g mode-keys vi
 
+# Set Ctrl-a as tmux prefix, this is especially nice with the caps-lock key mapped
+# to ctrl
+set -g prefix C-a
+# Pass command through to inner session
+bind a send-prefix
+
+# Start windows and panes at 1, not 0
+# 0 is tough to reach easily
+set -g base-index 1
+set -g pane-base-index 1
+
+# Faster command sequence
+set -s escape-time 0
+
+# Don't limit to screen size of smaller window if other client is not
+# actively looking at it
+setw -g aggressive-resize on
+
+#Flip to the last window
+bind-key C-a last-window
+
+# See activity in other windows
+setw -g monitor-activity on
+set -g visual-activity on
+
+# Automatically set window title
+setw -g automatic-rename
+
 # setup 'v' to begin selection as in Vim
 bind-key -t vi-copy v begin-selection
 bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
