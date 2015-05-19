@@ -34,3 +34,4 @@
 --type-set=jade=.jade
 --type-set=feature=.feature
 --type-set=json=.json
+--ignore-file=is:tags
