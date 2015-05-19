@@ -16,6 +16,7 @@ recipes = [
     "htop-osx",                   # Activity monitor
     "imagemagick",                # Image manipulation
     "mobile-shell",               # SSH like client for low quality connections aka mosh
+    "mtr",                        # Debugging network connections
     "ngrok",                      # Port forwarder
     "node",                       # Node.js
     "openssl",                    # Patched OpenSSL for latest security releases
@@ -46,7 +47,7 @@ recipes = [
 recipes.each do |r|
   unless INSTALLED_RECIPES.include?(r)
     puts "    installing #{r}"
-    `brew install #{r}`
+    system("brew install #{r}")
   else
     puts "    skipping #{r}"
   end
