@@ -1,0 +1,29 @@
+# http://www.cs.elte.hu/zsh-manual/zsh_14.html
+# http://zsh.sourceforge.net/Doc/Release/Zsh-Line-Editor.html
+
+function pick-hist {
+  command=$(history | cut -c8- | sed '1!G;h;$!d' | awk '!x[$0]++' | pick)
+  zle beginning-of-line
+  RBUFFER="$command"
+}
+
+# Run kill on a process
+function pick-kill {
+  command=$(ps -e | awk '{if(NR!=1) { print $4, $1 }}' | pick -do | tail -n +2)
+  zle beginning-of-line
+  RBUFFER="kill $command"
+  zle forward-word # handy for inserting flags
+}
+
+# create widget from function
+zle -N pick-hist
+zle -N pick-kill
+
+# bind to CTRL-h
+bindkey '^h' pick-hist
+
+# bind same key to esc - h
+bindkey '^[h' pick-hist
+
+# bind esc - k to kill
+bindkey '^[k' pick-kill

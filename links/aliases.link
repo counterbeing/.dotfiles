@@ -41,27 +41,15 @@ alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
 # Include custom aliases
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
 
-# Pick
-function phist
-{
-  $(history | cut -c8- | sort -u | pick)
-}
-
 # Run a rake task
-function prake
-{
+function prake {
   rake $(rake -T | cut -f2 -d' ' | pick)
 }
 
-# Run kill on a process
-function pikill
-{
-  kill $(ps -e | awk '{if(NR!=1) { print $4, $1 }}' | pick -do | tail -n +2)
-}
+
 
 # Run kill -9 on a selected process
-function pikill9
-{
+function pikill9 {
   kill -9 $(ps -e | awk '{if(NR!=1) { print $4, $1 }}' | pick -do | tail -n +2)
 }
 

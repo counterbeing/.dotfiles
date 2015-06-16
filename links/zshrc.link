@@ -78,3 +78,6 @@ ulimit -n 10240
 # anywhere else. This file will be created for you if it does not already
 # exist.
 [ -f ~/.local_config ] && source ~/.local_config
+
+# Load up any input ZLE things, reference here:
+source ~/.zsh_input
