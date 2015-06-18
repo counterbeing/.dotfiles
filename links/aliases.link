@@ -55,7 +55,7 @@ function pikill9 {
 }
 
 # Check out a git branch
-function gco{
+function gco {
   git checkout $(git branch | cut -c 3- | pick)
 }
 
