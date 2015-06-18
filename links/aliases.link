@@ -55,13 +55,12 @@ function pikill9 {
 }
 
 # Check out a git branch
-function gco {
+function gpo {
   git checkout $(git branch | cut -c 3- | pick)
 }
 
 # Output name of last command to notification center, to let you know it completed
-# This doesn't quite work as expected
-function tno() {
+function tno {
   terminal-notifier -message "$(history | tail -1 | cut -d' ' -f2- | cut -d';' -f1)" -title "Command Completed" -sound 'Purr'
 }
 
