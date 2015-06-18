@@ -1,4 +1,5 @@
 # General
+alias refresh='source ~/.zshrc'
 alias ls='ls -alFGT'
 alias pping="ping -a 8.8.8.8"
 alias ..="cd .."
