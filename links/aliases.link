@@ -22,6 +22,14 @@ alias gppm="git push production master"
 alias ggraph="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 alias glol="git log --oneline --graph --decorate"
 
+# I often need to remove a remote branch and replace it with my recently
+# squashed changes, it's always annoying to type.
+function replace_remote {
+  branch=$(git symbolic-ref --short HEAD)  
+  git push origin :$branch
+  git push origin $branch
+}
+
 # Capistrano
 alias cpd="cap production deploy"
 alias csd="cap staging deploy"
@@ -49,10 +57,9 @@ function prake {
 }
 
 
-
 # Run kill -9 on a selected process
 function pikill9 {
-  kill -9 $(ps -e | awk '{if(NR!=1) { print $4, $1 }}' | pick -do | tail -n +2)
+  kill -9 $(ps -e | awk '{if(NR!=3) { print $4, $1 }}' | pick -do | tail -n +2)
 }
 
 # Check out a git branch
