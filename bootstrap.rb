@@ -42,6 +42,9 @@ run_each_in_dir("links")
 puts "#{Tty.blue}Installing rubies... #{Tty.reset}"
 run_each_in_dir("osx/rbenv")
 
+puts "#{Tty.blue}Installing node modules via NPM... #{Tty.reset}"
+run_each_in_dir("osx/node")
+
 puts "#{Tty.blue}Enabling .gitignore global. #{Tty.reset}"
 run_each_in_dir("osx/git")
 
