@@ -66,6 +66,10 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
+# Setup NVM 
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 # sbin path for brew
 export PATH="/usr/local/sbin:$PATH"
 
@@ -81,3 +85,4 @@ ulimit -n 10240
 
 # Load up any input ZLE things, reference here:
 source ~/.zsh_input
+

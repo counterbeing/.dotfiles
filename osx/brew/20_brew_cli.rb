@@ -19,6 +19,7 @@ recipes = [
     "mtr",                        # Debugging network connections
     "ngrok",                      # Port forwarder
     "node",                       # Node.js
+    "nvm",                        # Node Version Manager
     "openssl",                    # Patched OpenSSL for latest security releases
     "pick",                       # Search multiline strings fuzzily
     "postgresql",                 # Database for local servers

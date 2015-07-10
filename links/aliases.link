@@ -21,6 +21,7 @@ alias gpsm="git push staging master"
 alias gppm="git push production master"
 alias ggraph="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 alias glol="git log --oneline --graph --decorate"
+alias dif="git diff --no-index"
 
 # I often need to remove a remote branch and replace it with my recently
 # squashed changes, it's always annoying to type.
@@ -48,9 +49,6 @@ export PGHOST='/tmp'
 # Node Webkit
 alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
 
-# Include custom aliases
-[[ -f ~/.aliases.local ]] && source ~/.aliases.local
-
 # Run a rake task
 function prake {
   rake $(rake -T | cut -f2 -d' ' | pick)
@@ -64,7 +62,7 @@ function pikill9 {
 
 # Check out a git branch
 function gpo {
-  git checkout $(git branch | cut -c 3- | pick)
+  git checkout $(git branch -v | tr '*' ' ' | pick | awk '{print $1}')
 }
 
 # Output name of last command to notification center, to let you know it completed
