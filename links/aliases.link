@@ -23,6 +23,9 @@ alias ggraph="git log --graph --abbrev-commit --decorate --date=relative --forma
 alias glol="git log --oneline --graph --decorate"
 alias dif="git diff --no-index"
 
+#Rake
+alias rake="noglob rake"
+
 # I often need to remove a remote branch and replace it with my recently
 # squashed changes, it's always annoying to type.
 function replace_remote {
