@@ -66,6 +66,11 @@ function pikill9 {
 # Check out a git branch
 function gpo {
   git checkout $(git branch -v | tr '*' ' ' | pick | awk '{print $1}')
+  # This is to do some colors and such :)
+  # git branch -v | ruby -e 'ARGF.each_line do |line|
+  #   cap = line.match(/\*?\W+(\S*)\W+(\S*)\s+(.*$)/)
+  #   puts "#{cap[0]} \e[34m#{cap[1]}\e[0m  \e[32m#{cap[2]}\e[0m\n"
+  # end'
 }
 
 # Output name of last command to notification center, to let you know it completed
