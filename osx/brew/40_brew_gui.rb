@@ -30,6 +30,7 @@ recipes = [
     "spectacle",       # Resize windows quickly
     "torbrowser",      # Anonymous browser
     "transmission",    # Torrent client
+    "unrarx",          # Decompress rar files
     "vagrant",         # Configurations for virtual machines
     "virtualbox",      # Run VMs for things like vagrant
     "vlc",             # Video player
