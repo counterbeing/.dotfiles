@@ -19,6 +19,7 @@ recipes = [
     "iterm2",          # Better terminal
     "little-snitch",   # Newtwork monitor and firewall
     "macdown",         # Markdown editor
+    "ngrok",           # SSH Tunneling
     "omnidisksweeper", # See whats using disk space in a GUI
     "omnifocus",       # Task managment
     "qlstephen",       # Quicklook for files without extension

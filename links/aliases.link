@@ -43,6 +43,10 @@ alias be="bundle exec"
 alias rake="bundle exec rake"
 alias b="bundle"
 
+# Mac OS X
+# When airply goes wonky, this is handy.
+alias reset_airplay="sudo killall coreaudiod"
+
 #Postgres
 alias pgstart='pg_ctl -l $PGDATA/server.log start'
 alias pgstop='pg_ctl stop -m fast'
@@ -71,6 +75,11 @@ function gpo {
   #   cap = line.match(/\*?\W+(\S*)\W+(\S*)\s+(.*$)/)
   #   puts "#{cap[0]} \e[34m#{cap[1]}\e[0m  \e[32m#{cap[2]}\e[0m\n"
   # end'
+}
+
+function serve {
+  port="${1:-1337}"
+  ruby -run -e httpd . -p $port
 }
 
 # Output name of last command to notification center, to let you know it completed

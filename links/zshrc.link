@@ -1,5 +1,6 @@
 export EDITOR=/usr/local/bin/vim
 export VISUAL=/usr/local/bin/vim
+export SHELL=/usr/local/bin/zsh
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="false"
