@@ -56,6 +56,16 @@ export PGHOST='/tmp'
 # Node Webkit
 alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
 
+# Update a bunch of things at once
+function update_all {
+  brew update;
+  brew upgrade --all;
+  upgrade_oh_my_zsh;
+  cd ~/.vim;
+  vim +PluginUpdate +qall;
+  softwareupdate --list;
+}
+
 # Run a rake task
 function prake {
   rake $(rake -T | cut -f2 -d' ' | pick)
