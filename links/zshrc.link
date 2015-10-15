@@ -33,7 +33,7 @@ antigen bundles <<EOBUNDLES
   robbyrussell/oh-my-zsh plugins/brew-cask
   bower
   capistrano
-  colored-man
+  colored-man-pages
   command-not-found
   gem
   git
