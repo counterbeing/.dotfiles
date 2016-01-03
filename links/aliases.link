@@ -100,9 +100,7 @@ function gre {
     fi
     done | pick
   )
-  selected=$([[ $selected =~ '^([a-zA-Z0-9_\\\/\-]*).*--- ' ]]  && echo $match[1])
-  # Debug here to see if regex is matching
-  # printf 'selected is "%s"' "$selected"
+  selected=$(echo "$selected" | awk '{print $1}')
   git checkout $selected
 }
 
