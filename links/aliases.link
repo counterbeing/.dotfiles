@@ -96,7 +96,9 @@ function gre {
     if git show-branch $branch &>/dev/null
     then
       glog=$(git log $branch -1 --pretty=oneline --abbrev-commit --no-merges)
-      printf '%-30s --- \e[34m%s\e[0m\n' "$branch" "$glog"
+      # printf '%-30s --- \x1b[34;01m%s\x1b[39;49;00m\n' "$branch" "$glog"
+      # printf '%-30s --- \e[34m%s\e[0m\n' "$branch" "$glog"
+      printf '%-30s --- %s\n' "$branch" "$glog"
     fi
     done | pick
   )
