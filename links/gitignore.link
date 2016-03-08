@@ -10,5 +10,6 @@ zeus.json
 .envrc
 .bundle
 *.log
+Session.vim
 
 tags
