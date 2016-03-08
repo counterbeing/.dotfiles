@@ -48,6 +48,7 @@ alias b="bundle"
 alias reset_airplay="sudo killall coreaudiod"
 alias disable_gatekeeper="sudo spctl --master-disable"
 alias enable_gatekeeper="sudo spctl --master-enable"
+alias recent_syslog="syslog -k Time ge -24h"
 
 #Postgres
 alias pgstart='pg_ctl -l $PGDATA/server.log start'

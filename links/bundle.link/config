@@ -1,3 +1,4 @@
 ---
 BUNDLE_BIN: ".bundle/bin"
 BUNDLE_BUILD__NOKOGIRI: "--use-system-libraries --with-xml2-include=/usr/local/opt/libxml2/include/libxml2"
+BUNDLE_LOCAL__TABLE_PRINT: "/Users/clogan/Code/table_print"
