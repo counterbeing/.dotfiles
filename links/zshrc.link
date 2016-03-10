@@ -25,6 +25,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 #----------------------------------------------------------#
 source ~/.dotfiles/submodules/antigen/antigen.zsh
 antigen use oh-my-zsh
+DISABLE_AUTO_UPDATE="true"
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundles <<EOBUNDLES
