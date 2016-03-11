@@ -21,7 +21,7 @@ alias gpsm="git push staging master"
 alias gppm="git push production master"
 alias ggraph="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 alias glol="git log --oneline --graph --decorate"
-alias dif="git diff --color | diff-so-fancy"
+alias dif="git diff --color | diff-so-fancy | less"
 
 #Rake
 alias rake="noglob rake"
