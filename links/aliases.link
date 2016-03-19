@@ -29,7 +29,7 @@ alias rake="noglob rake"
 # I often need to remove a remote branch and replace it with my recently
 # squashed changes, it's always annoying to type.
 function replace_remote {
-  branch=$(git symbolic-ref --short HEAD)  
+  branch=$(git symbolic-ref --short HEAD)
   git push origin :$branch
   git push origin $branch
 }
@@ -65,7 +65,7 @@ function update_all {
   brew upgrade --all;
   upgrade_oh_my_zsh;
   cd ~/.vim;
-  vim +PluginUpdate +qall;
+  vim +PlugUpgrade +PlugUpdate +qall;
   softwareupdate --list;
 }
 
@@ -117,4 +117,3 @@ function serve {
 function tno {
   terminal-notifier -message "$(history | tail -1 | cut -d' ' -f2- | cut -d';' -f1)" -title "Command Completed" -sound 'Purr'
 }
-
