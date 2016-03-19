@@ -64,8 +64,7 @@ function update_all {
   brew update;
   brew upgrade --all;
   upgrade_oh_my_zsh;
-  cd ~/.vim;
-  vim +PlugUpgrade +PlugUpdate +qall;
+  ~/.vim/update_plugins.sh
   softwareupdate --list;
 }
 
