@@ -15,7 +15,7 @@ puts 'Setting you as owner on /usr/local'
 # `brew tap nviennot/tmate`              # for tmate
 # `brew install caskroom/cask/brew-cask` # mac os x gui apps
 
-# INSTALLED_CASK_RECIPES =  `brew cask list`
+INSTALLED_CASK_RECIPES =  `brew cask list`
 # INSTALLED_RECIPES =  `brew list`
 # INSTALLED_TAPS = `brew tap`
 
