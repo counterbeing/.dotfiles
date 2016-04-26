@@ -1,8 +1,7 @@
 puts "Installing ruby..."
 installed_versions = `rbenv versions`
 versions = [
-  "2.1.5",
-  "2.2.1"
+  "2.3.0"
 ]
 
 versions.each do |version|
