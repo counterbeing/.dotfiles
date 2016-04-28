@@ -2,6 +2,7 @@ puts "#{Tty.blue}Installing brew GUI applications...#{Tty.reset}"
 
 recipes = [
     # "1password",     # Password manager
+    "airfoil",         # Stream to airplay devices and more
     "adapter",         # Media converter
     "alfred",          # App and file launcher
     "atom",            # A free GUI text editor... sometimes you want a GUI
