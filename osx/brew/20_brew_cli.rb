@@ -31,6 +31,7 @@ recipes = [
     'sshfs',                      # Mount a filesystem over ssh using osxfuse
     'terminal-notifier',          # Send notifications to notification center
     'the_silver_searcher',        # Fast file searching
+    'thefuck',                    # Automagic command correction
     'tig',                        # Beautiful git visualization
     'tmate',                      # Easy remote pair sessions
     'tmux',                       # Terminal multiplexer, great for pairing
