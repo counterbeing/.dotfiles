@@ -1,3 +1,5 @@
 irb
 pry
 tmuxinator
+jmeta
+ruby-prof
