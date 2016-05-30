@@ -93,7 +93,7 @@ function gpo {
 # Get most recently used git branches via the reflog, then allow you to pick one
 function gre {
   selected=$(
-    for branch in $(git reflog | egrep -io "moving from ([^[:space:]]+)" | awk '{ print $3 }' | awk ' !x[$0]++' | head -n10); do
+    for branch in $(git reflog | egrep -io "moving from ([^[:space:]]+)" | awk '{ print $3 }' | awk ' !x[$0]++' | head -n20); do
     if git show-branch $branch &>/dev/null
     then
       glog=$(git log $branch -1 --pretty=oneline --abbrev-commit --no-merges)
