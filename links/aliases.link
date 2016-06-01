@@ -41,7 +41,7 @@ alias csd="cap staging deploy"
 
 # Ruby
 alias be="bundle exec"
-alias rake="bundle exec rake"
+alias rake="noglob bundle exec rake"
 alias b="bundle"
 
 # Mac OS X
