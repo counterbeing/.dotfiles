@@ -8,4 +8,3 @@ files.each do |file|
   destination = HOME + "/." + filename
   make_link_where_appropriate(file, destination)
 end
-

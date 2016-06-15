@@ -1,0 +1,23 @@
+"*":
+  core:
+    themes: [
+      "seti-ui"
+      "seti-syntax"
+    ]
+  editor:
+    fontSize: 10
+    tabType: "soft"
+  "exception-reporting":
+    userId: "69e97a2c-a40b-a056-9615-6722c5e60933"
+  "seti-ui":
+    compactView: true
+    disableAnimations: true
+    themeColor: "Green"
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
+  welcome:
+    showOnStartup: false

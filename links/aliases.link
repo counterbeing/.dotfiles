@@ -10,9 +10,9 @@ alias tlf="tail -f"
 alias ln='ln -v'
 alias mkdir='mkdir -p'
 alias ...='../..'
-alias -g G='| grep'
-alias -g M='| less'
-alias -g L='| wc -l'
+# alias -g G='| grep'
+# alias -g M='| less'
+# alias -g L='| wc -l'
 alias weather='curl http://wttr.in/san_francisco'
 
 #Git

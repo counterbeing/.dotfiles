@@ -30,26 +30,17 @@ def run_each_in_dir(dir)
   end
 end
 
-puts "#{Tty.blue}Installing brew. #{Tty.reset}"
-run_each_in_dir("osx/brew")
-
-puts "#{Tty.blue}Changing Mac OS and Application Preferences. #{Tty.reset}"
-run_each_in_dir("osx/prefs")
-
-puts "#{Tty.blue}Creating links to dotfiles in home dir. #{Tty.reset}"
-run_each_in_dir("links")
-
-puts "#{Tty.blue}Installing rubies... #{Tty.reset}"
-run_each_in_dir("osx/rbenv")
-
-puts "#{Tty.blue}Installing node modules via NPM... #{Tty.reset}"
-run_each_in_dir("osx/node")
-
-puts "#{Tty.blue}Enabling .gitignore global. #{Tty.reset}"
-run_each_in_dir("osx/git")
-
-puts "#{Tty.blue}Installing powerline. #{Tty.reset}"
-run_each_in_dir("osx/powerline")
-
-puts "#{Tty.blue}Configuring Vim. #{Tty.reset}"
-run_each_in_dir("vim")
+[
+  'osx/brew',
+  'osx/prefs',
+  'links',
+  'osx/rbenv',
+  'osx/node',
+  'osx/git',
+  'osx/powerline',
+  'vim',
+  'osx/atom'
+].each do |folder|
+  puts "#{Tty.blue}Configuring #{folder}...#{Tty.reset}"
+  run_each_in_dir(folder)
+end
