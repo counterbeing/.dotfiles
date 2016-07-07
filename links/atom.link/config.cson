@@ -1,17 +1,25 @@
 "*":
   core:
+    openEmptyEditorOnStart: false
     themes: [
       "seti-ui"
       "seti-syntax"
     ]
   editor:
-    fontSize: 10
+    fontSize: 11
     tabType: "soft"
   "exception-reporting":
     userId: "69e97a2c-a40b-a056-9615-6722c5e60933"
+  linter:
+    showErrorPanel: false
+    statusIconScope: "File"
+  "linter-rubocop": {}
+  minimap:
+    autoToggle: false
   "seti-ui":
     compactView: true
     disableAnimations: true
+    hideTabs: true
     themeColor: "Green"
   "split-diff":
     diffWords: true
@@ -19,5 +27,6 @@
     leftEditorColor: "red"
     rightEditorColor: "green"
     syncHorizontalScroll: true
+  "tree-view": {}
   welcome:
     showOnStartup: false
