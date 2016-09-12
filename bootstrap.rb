@@ -16,13 +16,12 @@ module Tty extend self
   def escape n; "\033[#{n}m" if STDOUT.tty? end
 end
 
-
-unless `uname`.chomp == "Darwin"
+unless `uname`.chomp == 'Darwin'
   abort "#{Tty.red}Sorry, your OS is not supported#{Tty.reset}"
 end
 
 def run_each_in_dir(dir)
-  dir = ROOT + "/" + dir
+  dir = ROOT + '/' + dir
   entries = Dir.glob(dir + '/*.rb')
   entries.sort!
   entries.each do |e|

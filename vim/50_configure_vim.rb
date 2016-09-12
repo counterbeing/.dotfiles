@@ -22,8 +22,3 @@ end
 
 make_link_where_appropriate("#{vim_folder}/.vimrc", "#{HOME}/.vimrc")
 
-puts "Installing vim bundles with Vundle, this will take a moment"
-Dir.chdir(vim_folder) do
-  # Install all Vundle plugins
-  %x[vim +PluginInstall +qall]
-end
