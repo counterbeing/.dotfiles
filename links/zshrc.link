@@ -80,6 +80,8 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 
+source /usr/local/opt/autoenv/activate.sh
+
 # thefuck Integration
 # https://github.com/nvbn/thefuck
 eval "$(thefuck --alias)"

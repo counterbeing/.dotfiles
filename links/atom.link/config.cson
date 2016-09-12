@@ -1,21 +1,31 @@
 "*":
+  "arduino-upload": {}
+  "atom-ctags":
+    autoBuildTagsWhenActive: true
   core:
+    disabledPackages: [
+      "symbols-view"
+      "linter-reek"
+    ]
     openEmptyEditorOnStart: false
     themes: [
       "seti-ui"
       "seti-syntax"
     ]
   editor:
-    fontSize: 11
+    fontSize: 12
     tabType: "soft"
   "exception-reporting":
     userId: "69e97a2c-a40b-a056-9615-6722c5e60933"
   linter:
     showErrorPanel: false
     statusIconScope: "File"
+  "linter-reek": {}
   "linter-rubocop": {}
   minimap:
     autoToggle: false
+  "rubocop-auto-correct":
+    correctFile: true
   "seti-ui":
     compactView: true
     disableAnimations: true

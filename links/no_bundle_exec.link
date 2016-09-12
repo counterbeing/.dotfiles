@@ -1,5 +1,8 @@
+bundle
 irb
 pry
 tmuxinator
 jmeta
 ruby-prof
+aptible
+rubocop
