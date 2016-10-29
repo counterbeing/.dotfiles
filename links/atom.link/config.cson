@@ -1,11 +1,15 @@
 "*":
   "arduino-upload": {}
+  "atom-beautify":
+    general:
+      _analyticsUserId: "ae612e20-03dc-402d-a8df-30f9064fbf49"
   "atom-ctags":
     autoBuildTagsWhenActive: true
   core:
     disabledPackages: [
       "symbols-view"
       "linter-reek"
+      "arduino-upload"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -13,7 +17,7 @@
       "seti-syntax"
     ]
   editor:
-    fontSize: 12
+    fontSize: 10
     tabType: "soft"
   "exception-reporting":
     userId: "69e97a2c-a40b-a056-9615-6722c5e60933"

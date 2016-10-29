@@ -2,8 +2,57 @@ export EDITOR=/usr/local/bin/vim
 export VISUAL=/usr/local/bin/vim
 export SHELL=/usr/local/bin/zsh
 
-# Set to this to use case-sensitive completion
-CASE_SENSITIVE="false"
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/cory/.oh-my-zsh
+
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+export UPDATE_ZSH_DAYS=60
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git rails bower aws brew command-not-found docker git-extras)
+
+source $ZSH/oh-my-zsh.sh
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
 
 #----------------------------------------------------------#
 # Completions
@@ -19,37 +68,9 @@ fpath=("/usr/local/bin/" $fpath)
 # For zsh completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-#----------------------------------------------------------#
-# Antigen
-# Git based package management for Zsh
-#----------------------------------------------------------#
-source ~/.dotfiles/submodules/antigen/antigen.zsh
-antigen use oh-my-zsh
-DISABLE_AUTO_UPDATE="true"
+# AWS Cli completion
+source /usr/local/bin/aws_zsh_completer.sh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundles <<EOBUNDLES
-  robbyrussell/oh-my-zsh
-  robbyrussell/oh-my-zsh plugins/brew
-  robbyrussell/oh-my-zsh plugins/brew-cask
-  bower
-  capistrano
-  colored-man-pages
-  command-not-found
-  gem
-  git
-  git-extras
-  grunt
-  npm
-  themes
-  tmux
-  zsh-users/zsh-completions src
-  zsh-users/zsh-syntax-highlighting
-  jsontools
-EOBUNDLES
-
-# My [slightly] custom theme
-antigen theme counterbeing/cory-crunch-theme
 
 #----------------------------------------------------------#
 # Custom includes

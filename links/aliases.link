@@ -10,9 +10,6 @@ alias tlf="tail -f"
 alias ln='ln -v'
 alias mkdir='mkdir -p'
 alias ...='../..'
-# alias -g G='| grep'
-# alias -g M='| less'
-# alias -g L='| wc -l'
 alias weather='curl http://wttr.in/san_francisco'
 
 #Git
@@ -63,7 +60,8 @@ alias nw="/Applications/nwjs.app/Contents/MacOS/nwjs"
 # Update a bunch of things at once
 function update_all {
   brew update;
-  brew upgrade --all;
+  brew upgrade;
+  brew prune;
   upgrade_oh_my_zsh;
   ~/.vim/update_plugins.sh
   softwareupdate --list;
@@ -88,6 +86,10 @@ function gpo {
   #   cap = line.match(/\*?\W+(\S*)\W+(\S*)\s+(.*$)/)
   #   puts "#{cap[0]} \e[34m#{cap[1]}\e[0m  \e[32m#{cap[2]}\e[0m\n"
   # end'
+}
+
+function flush_dns_cache {
+  sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder; 
 }
 
 # Get most recently used git branches via the reflog, then allow you to pick one
@@ -116,4 +118,8 @@ function serve {
 # Output name of last command to notification center, to let you know it completed
 function tno {
   terminal-notifier -message "$(history | tail -1 | cut -d' ' -f2- | cut -d';' -f1)" -title "Command Completed" -sound 'Purr'
+}
+
+function project_replace () {
+  ag -l $1 | xargs gsed -ri -e "s/$1/$2/g"
 }

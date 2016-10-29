@@ -1,4 +1,5 @@
 bundle
+ruby
 irb
 pry
 tmuxinator
@@ -6,3 +7,6 @@ jmeta
 ruby-prof
 aptible
 rubocop
+git-launch
+branch-launch
+scss-lint

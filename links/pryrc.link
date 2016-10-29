@@ -13,6 +13,7 @@ end
 
 
 # Dave's recommendation for shortcuts with Pry step
+Pry.commands.alias_command 'dp', 'disable-pry'
 Pry.commands.alias_command 'c', 'continue'
 Pry.commands.alias_command 's', 'step'
 Pry.commands.alias_command 'n', 'next'
