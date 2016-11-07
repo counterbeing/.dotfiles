@@ -9,6 +9,11 @@ def run_clone
   `git clone --recursive https://github.com/counterbeing/Vim-Configuration #{HOME}/.vim`
 end
 
+def corys_vim_config?
+  File.exist?(@git_config) &&
+    File.read(@git_config)[%r{counterbeing\/Vim-Configuration}]
+end
+
 if corys_vim_config?
   Dir.chdir(vim_folder) do
     `git pull`
@@ -18,11 +23,6 @@ elsif Dir.exist?(vim_folder)
   run_clone
 else
   run_clone
-end
-
-def corys_vim_config?
-  File.exist?(@git_config) &&
-    File.read(@git_config)[%r{counterbeing\/Vim-Configuration}]
 end
 
 make_link_where_appropriate("#{vim_folder}/.vimrc", "#{HOME}/.vimrc")
