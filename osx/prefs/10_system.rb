@@ -1,7 +1,13 @@
 ###############################################################################
+# System                                                                      #
+###############################################################################
+# Disable accents on holding
+`defaults write com.github.atom ApplePressAndHoldEnabled -bool false`
+# `defaults write -g ApplePressAndHoldEnabled -bool false`
+
+###############################################################################
 # Finder #
 # ###############################################################################
-
 
 # Menu bar: show battery percentage
 `defaults write com.apple.menuextra.battery ShowPercent -string "YES"`
@@ -98,5 +104,6 @@
 
 # Enable Debug Menu in the Mac App Store
 `defaults write com.apple.appstore ShowDebugMenu -bool true`
+
 
 

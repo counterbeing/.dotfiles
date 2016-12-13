@@ -1,1 +1,3 @@
 PS1="\e[0;31m[\#]\e[m \e[0;33m[\d\e[m\e[0;32m\t]\e[m\n\e[0;36m[\u]\e[m\e[0;35m[\h]\e[m[\w]\n"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -12,6 +12,12 @@ alias mkdir='mkdir -p'
 alias ...='../..'
 alias weather='curl http://wttr.in/san_francisco'
 
+# Kubernetes
+alias kgp='kubectl get pods -o wide'
+alias kga='kubectl get all -o wide'
+alias kd='kubectl describe'
+alias ku='kubectl'
+
 #Git
 alias gp="git push"
 alias gphm="git push heroku master"

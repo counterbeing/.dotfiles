@@ -12,12 +12,15 @@
       "arduino-upload"
     ]
     openEmptyEditorOnStart: false
+    projectHome: "/Users/cory/Code"
+    telemetryConsent: "no"
     themes: [
       "seti-ui"
       "seti-syntax"
     ]
   editor:
-    fontSize: 10
+    fontSize: 13
+    showIndentGuide: true
     tabType: "soft"
   "exception-reporting":
     userId: "69e97a2c-a40b-a056-9615-6722c5e60933"
@@ -26,14 +29,16 @@
     statusIconScope: "File"
   "linter-reek": {}
   "linter-rubocop": {}
+  "markdown-preview-plus": {}
   minimap:
     autoToggle: false
+  "rails-rspec": {}
   "rubocop-auto-correct":
     correctFile: true
+  "seti-syntax": {}
   "seti-ui":
     compactView: true
     disableAnimations: true
-    hideTabs: true
     themeColor: "Green"
   "split-diff":
     diffWords: true
@@ -41,6 +46,8 @@
     leftEditorColor: "red"
     rightEditorColor: "green"
     syncHorizontalScroll: true
+  tabs:
+    addNewTabsAtEnd: true
   "tree-view": {}
   welcome:
     showOnStartup: false

@@ -71,6 +71,10 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # AWS Cli completion
 source /usr/local/bin/aws_zsh_completer.sh
 
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
+
 
 #----------------------------------------------------------#
 # Custom includes
@@ -125,3 +129,5 @@ ulimit -n 10240
 # Load up any input ZLE things, reference here:
 source ~/.zsh_input
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
