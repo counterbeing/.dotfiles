@@ -41,9 +41,9 @@ recipes = [
   'openssl',                    # Patched OpenSSL for latest security releases
   'pgcli',
   'pick',                       # Search multiline strings fuzzily
-  'postgresql',                 # Database for local servers
+  'postgrsql',                  # Database for local servers
   'python',                     # Recent python
-  'qt',                         # used in headless browser testing
+  'qt5',                        # used in headless browser testing
   'rbenv',                      # A ruby version manager
   'reattach-to-user-namespace', # Allows Tmux to interact with the system pasteboard via pbcopy etc
   'redis',
@@ -68,10 +68,6 @@ recipes = [
   'zsh-completions',
   'zsh-completions',            # Various zsh completions
   'zsh-syntax-highlighting'     # syntax highlighting as you type
-  'zsh-syntax-highlighting',
-
-
-
 ]
 
 recipes.each do |r|

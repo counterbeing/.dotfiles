@@ -1,7 +1,7 @@
 Sublime-Style-Column-Selection@1.7.2
 advanced-open-file@0.16.4
 arduino-upload@1.0.1
-atom-beautify@0.29.13
+atom-beautify@0.29.14
 atom-ctags@5.0.0
 atom-pair@2.0.10
 atom-prettify@0.1.3
