@@ -1,0 +1,3 @@
+'atom-workspace':
+  'alt-r': 'rubocop-auto-correct:current-file'
+  'alt-p': 'copy-path:copy-project-relative-path'
