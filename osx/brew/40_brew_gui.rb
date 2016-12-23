@@ -10,7 +10,7 @@ recipes = [
   'airfoil',         # Stream to airplay devices and more
   'alfred',          # App and file launcher
   'atom',            # A free GUI text editor... sometimes you want a GUI
-  'beamer'           # Stream to chromecast
+  'beamer',          # Stream to chromecast
   'cocoarestclient', # Simple REST client GUI
   'cscreen',
   'cyberduck',       # FTP Client
