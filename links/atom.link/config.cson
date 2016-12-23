@@ -24,6 +24,9 @@
       ".tags1"
     ]
     openEmptyEditorOnStart: false
+    packagesWithKeymapsDisabled: [
+      "copy-path"
+    ]
     projectHome: "/Users/cory/Code"
     telemetryConsent: "no"
     themes: [

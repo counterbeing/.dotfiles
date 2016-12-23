@@ -38,7 +38,8 @@ end
   'osx/git',
   'osx/powerline',
   'vim',
-  'osx/atom'
+  'osx/atom',
+  'osx/mas'
 ].each do |folder|
   puts "#{Tty.blue}Configuring #{folder}...#{Tty.reset}"
   run_each_in_dir(folder)
