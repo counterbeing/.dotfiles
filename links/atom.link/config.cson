@@ -35,6 +35,7 @@
     ]
     useCustomTitleBar: true
   editor:
+    fontSize: 13
     showIndentGuide: true
     tabType: "soft"
   "exception-reporting":
