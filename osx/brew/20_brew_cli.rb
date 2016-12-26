@@ -32,6 +32,7 @@ recipes = [
   'hugo',
   'imagemagick',                # Image manipulation
   'jpeg',
+  'jq',                         # Parse json in bash
   'keybase',
   'kubernetes-cli',
   'mobile-shell',               # SSH like client for low quality connections aka mosh

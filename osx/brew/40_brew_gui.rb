@@ -23,7 +23,6 @@ recipes = [
   'iterm2',          # Better terminal
   'little-snitch',   # Newtwork monitor and firewall
   'macdown',         # Markdown editor
-  'monity-helper',
   'ngrok',           # SSH Tunneling
   'omnidisksweeper', # See whats using disk space in a GUI
   'omnifocus',       # Task managment
