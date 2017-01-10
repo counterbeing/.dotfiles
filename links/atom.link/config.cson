@@ -35,7 +35,7 @@
     ]
     useCustomTitleBar: true
   editor:
-    fontSize: 13
+    fontSize: 12
     showIndentGuide: true
     tabType: "soft"
   "exception-reporting":
@@ -74,5 +74,7 @@
     autoReveal: true
     hideIgnoredNames: true
     squashDirectoryNames: true
+  "vim-mode":
+    useClipboardAsDefaultRegister: false
   welcome:
     showOnStartup: false

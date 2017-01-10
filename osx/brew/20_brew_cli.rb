@@ -49,6 +49,7 @@ recipes = [
   'reattach-to-user-namespace', # Allows Tmux to interact with the system pasteboard via pbcopy etc
   'redis',
   'ruby-build',                 # Build ruby versions for rbenv
+  'siege',                      # Load testing
   'speedtest_cli',
   'ssh-copy-id',                # Copies ssh keys and puts in authorized on remote host
   'sshfs',                      # Mount a filesystem over ssh using osxfuse
@@ -65,6 +66,7 @@ recipes = [
   'unrar',                      # Unrar, that's all
   'vim',                        # Best text editor ever
   'wget',                       # Curl alternative, some things use it
+  'zlib',                       # Compression, useful for siege
   'zsh',                        # Like bash, but way better
   'zsh-completions',
   'zsh-completions',            # Various zsh completions
