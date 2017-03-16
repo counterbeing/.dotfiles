@@ -1,7 +1,7 @@
 # .
 class ConfigureVim
   extend Bootstrapper
-  DEPENDENCIES = [BrewCli].freeze
+  DEPENDENCIES = %w(brew_cli install_vim).freeze
   MESSAGE = 'Cloning the vim config into ~/.vim'.freeze
   REPOSITORY = 'https://github.com/counterbeing/Vim-Configuration'.freeze
   VIM_FOLDER = "#{Utils::HOME}/.vim".freeze

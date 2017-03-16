@@ -1,7 +1,7 @@
 # .
 class ConfigureGit
   extend Osx
-  DEPENDENCIES = [BrewCli].freeze
+  DEPENDENCIES = %w(brew_cli).freeze
   MESSAGE = 'Configuring git...'.freeze
 
   def call

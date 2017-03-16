@@ -2,6 +2,7 @@
 class PreferencesTransmission
   extend Osx
   MESSAGE = 'Setting transmission prefs'.freeze
+  DEPENDENCIES = %w(brew_gui).freeze
   def call
     # Use `~/Documents/Torrents` to store incomplete downloads
     `defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true`

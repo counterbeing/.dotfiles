@@ -2,7 +2,7 @@
 class MasXcodeFollowup
   extend Osx
   MESSAGE = 'Accepting ToS from Xcode...'.freeze
-  DEPENDENCIES = [MasInstallApps].freeze
+  DEPENDENCIES = %w(mas_install_apps).freeze
 
   def call
     `sudo xcodebuild -license accept`

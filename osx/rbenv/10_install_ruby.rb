@@ -1,7 +1,7 @@
 # .
 class InstallRuby
   extend Osx
-  DEPENDENCIES = [BrewCli].freeze
+  DEPENDENCIES = %w(brew_cli).freeze
   MESSAGE = 'Installing ruby...'.freeze
   INSTALLED_VERSIONS = `rbenv versions`.freeze
   DESIRED_VERSIONS = [

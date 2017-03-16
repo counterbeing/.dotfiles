@@ -15,7 +15,8 @@ module Bootstrapper
     return true unless defined?(self::DEPENDENCIES)
     return true if self::DEPENDENCIES.empty?
     Array(self::DEPENDENCIES).all? do |dep|
-      run_classes.include?(dep)
+      klass = Kernel.const_get dep.split('_').map(&:capitalize).join
+      run_classes.include?(klass)
     end
   end
 

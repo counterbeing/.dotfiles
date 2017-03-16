@@ -1,7 +1,9 @@
 # .
 class RestartApps
   extend Osx
-  DEPENDENCIES = [LinkPlists, PreferencesDockAndDash, PreferencesSystem].freeze
+  DEPENDENCIES = %w(
+    link_plists preferences_dock_and_dash preferences_system
+  ).freeze
   MESSAGE = 'Restarting apps...'.freeze
   APPS = [
     'Activity Monitor',

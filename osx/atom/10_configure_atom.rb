@@ -2,7 +2,7 @@
 class ConfigureAtom
   extend Osx
   MESSAGE = 'Installing atom packages'.freeze
-  DEPENDENCIES = [BrewGui].freeze
+  DEPENDENCIES = %w(brew_gui).freeze
 
   def call
     packages_file = '~/.dotfiles/links/atom.link/packages.txt'

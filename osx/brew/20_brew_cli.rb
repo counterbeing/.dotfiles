@@ -2,7 +2,7 @@
 class BrewCli
   include Osx
   extend Osx
-  DEPENDENCIES = [BrewInstaller].freeze
+  DEPENDENCIES = %w(brew_installer).freeze
   MESSAGE = 'Installing Brew packages...'.freeze
 
   # rubocop:disable Metrics/LineLength
@@ -46,7 +46,7 @@ class BrewCli
     'openssl',                    # Patched OpenSSL for latest security releases
     'pgcli',
     'pick',                       # Search multiline strings fuzzily
-    'postgrsql',                  # Database for local servers
+    'postgresql',                 # Database for local servers
     'python',                     # Recent python
     # 'qt5',                        # used in headless browser testing
     'rbenv',                      # A ruby version manager
@@ -56,7 +56,6 @@ class BrewCli
     'siege',                      # Load testing
     'speedtest_cli',
     'ssh-copy-id',                # Copies ssh keys and puts in authorized on remote host
-    'sshfs',                      # Mount a filesystem over ssh using osxfuse
     'terminal-notifier',          # Send notifications to notification center
     'terraform',
     'the_silver_searcher',        # Fast file searching
