@@ -34,8 +34,8 @@ end
   'osx/prefs',
   'links',
   'osx/rbenv',
-  'osx/node',
-  'osx/git',
+  'node',
+  'git',
   'vim',
   'osx/atom',
   'osx/mas'
