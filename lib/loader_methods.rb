@@ -1,5 +1,4 @@
 # rubocop:disable all
-
 module Tty extend self 
   def blue; bold 34; end
   def white; bold 39; end
