@@ -4,15 +4,26 @@ module Bootstrapper
 
   def run
     puts "#{Tty.blue}#{self::MESSAGE}#{Tty.reset}"
-    new.call && return if callable?
-    puts 'skipping, platform mismatch'
+    if callable?
+      new.call
+      return
+    end
+    puts 'skipping, due to platform mismatch'
+  end
+
+  def runnable?(run_classes)
+    return true unless defined?(self::DEPENDENCIES)
+    return true if self::DEPENDENCIES.empty?
+    Array(self::DEPENDENCIES).all? do |dep|
+      run_classes.include?(dep)
+    end
   end
 
   private
 
   def callable?
     return true unless defined? self::PLATFORMS
-    return true if self::PLATFORM.include?(platform)
+    return true if self::PLATFORMS.include?(platform)
     false
   end
 
@@ -20,7 +31,7 @@ module Bootstrapper
     @os ||= begin
       case RbConfig::CONFIG['host_os']
       when /darwin|mac os/
-        :macosx
+        :macos
       when /linux/
         :linux
       else

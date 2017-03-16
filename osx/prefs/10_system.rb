@@ -17,9 +17,6 @@ class PreferencesSystem
     # Save to disk (not to iCloud) by default
     `defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false`
 
-    # Disable the “Are you sure you want to open this application?” dialog
-    # `defaults write com.apple.LaunchServices LSQuarantine -bool false`
-
     `defaults write com.apple.finder CreateDesktop -bool false`
 
     # Finder: show path bar

@@ -1,6 +1,8 @@
 # Install fonts using Brew
 class BrewFont
+  include Osx
   extend Osx
+  DEPENDENCIES = [BrewInstaller].freeze
   MESSAGE = 'Installing fonts...'.freeze
   RECIPES = [
     'font-meslo-lg-for-powerline', # Used in terminal

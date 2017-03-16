@@ -7,10 +7,9 @@ class LinkDotfiles
 
   def call
     FILES.each do |file|
-      filename = %r{//([^/]+).link$/}.match(file)[1]
-      # filename = /\/([^\/]+).link$/.match(file)[1]
+      filename = %r{([^/]+).link$}.match(file)[1]
       destination = Utils::HOME + '/.' + filename
-      make_link_where_appropriate(file, destination)
+      Utils.make_link_where_appropriate(file, destination)
     end
   end
 end

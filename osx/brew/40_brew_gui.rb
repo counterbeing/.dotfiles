@@ -1,7 +1,9 @@
 # Install packages using Brew
 class BrewGui
+  include Osx
   extend Osx
   MESSAGE = 'Installing brew GUI applications...'.freeze
+  DEPENDENCIES = [BrewInstaller].freeze
 
   RECIPES = [
     'adafruit-arduino',

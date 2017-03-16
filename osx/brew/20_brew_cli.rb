@@ -1,6 +1,8 @@
 # Install packages using Brew
 class BrewCli
+  include Osx
   extend Osx
+  DEPENDENCIES = [BrewInstaller].freeze
   MESSAGE = 'Installing Brew packages...'.freeze
 
   # rubocop:disable Metrics/LineLength
@@ -37,7 +39,6 @@ class BrewCli
     'imagemagick',                # Image manipulation
     'jpeg',
     'jq',                         # Parse json in bash
-    'keybase',
     'mobile-shell',               # SSH like client for low quality connections aka mosh
     'mtr',                        # Debugging network connections
     'node',                       # Node.js
@@ -47,7 +48,7 @@ class BrewCli
     'pick',                       # Search multiline strings fuzzily
     'postgrsql',                  # Database for local servers
     'python',                     # Recent python
-    'qt5',                        # used in headless browser testing
+    # 'qt5',                        # used in headless browser testing
     'rbenv',                      # A ruby version manager
     'reattach-to-user-namespace', # Allows Tmux to interact with the system pasteboard via pbcopy etc
     'redis',
@@ -75,8 +76,8 @@ class BrewCli
   ].freeze
   # rubocop:enable Metrics/LineLength
 
-  def self.call
-    recipes.each do |r|
+  def call
+    RECIPES.each do |r|
       if installed_recipes.include?(r)
         puts "    skipping #{r}"
       else

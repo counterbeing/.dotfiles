@@ -13,10 +13,13 @@ class BrewInstaller
     `brew tap caskroom/fonts`              # fonts
     `brew tap thoughtbot/formulae`         # pick
     `brew install caskroom/cask/brew-cask` # mac os x gui apps
+    # If you have a custom sudo, it needs special permissions
+    `/usr/bin/sudo chown root:wheel /usr/local/bin/sudo`
+    `/usr/bin/sudo chmod 4755 /usr/local/bin/sudo`
   end
 
   def install_brew
-    if which('brew')
+    if Utils.which('brew')
       puts 'Homebrew already installed'
       `brew update`
     else
