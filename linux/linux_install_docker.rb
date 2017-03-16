@@ -1,7 +1,8 @@
+# .
 class LinuxInstallDocker
   extend Bootstrapper
   include LinuxUtilities
-  MESSAGE =  'Installing Docker...'.freeze
+  MESSAGE = 'Installing Docker...'.freeze
 
   def call
     command = <<-EOS

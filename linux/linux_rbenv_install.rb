@@ -1,7 +1,8 @@
+# .
 class LinuxRbenvInstall
   extend Bootstrapper
   include LinuxUtilities
-  MESSAGE =  'Installing Rbenv...'.freeze
+  MESSAGE = 'Installing Rbenv...'.freeze
 
   def call
     command = <<-EOS
