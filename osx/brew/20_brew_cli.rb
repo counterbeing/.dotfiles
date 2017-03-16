@@ -34,7 +34,6 @@ recipes = [
   'jpeg',
   'jq',                         # Parse json in bash
   'keybase',
-  'kubernetes-cli',
   'mobile-shell',               # SSH like client for low quality connections aka mosh
   'mtr',                        # Debugging network connections
   'node',                       # Node.js
@@ -56,7 +55,6 @@ recipes = [
   'terminal-notifier',          # Send notifications to notification center
   'terraform',
   'the_silver_searcher',        # Fast file searching
-  'thefuck',
   'thefuck',                    # Automagic command correction
   'tig',                        # Beautiful git visualization
   'tmate',                      # Easy remote pair sessions
@@ -68,7 +66,6 @@ recipes = [
   'wget',                       # Curl alternative, some things use it
   'zlib',                       # Compression, useful for siege
   'zsh',                        # Like bash, but way better
-  'zsh-completions',
   'zsh-completions',            # Various zsh completions
   'zsh-syntax-highlighting'     # syntax highlighting as you type
 ]

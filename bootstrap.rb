@@ -36,7 +36,6 @@ end
   'osx/rbenv',
   'osx/node',
   'osx/git',
-  'osx/powerline',
   'vim',
   'osx/atom',
   'osx/mas'

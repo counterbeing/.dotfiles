@@ -1,12 +1,12 @@
 #! /usr/bin/env ruby
 
 puts 'Cloning the vim config into ~/.vim'
-
+REPOSITORY = 'https://github.com/counterbeing/Vim-Configuration'.freeze
 vim_folder = "#{HOME}/.vim"
 @git_config = vim_folder + '/.git/config'
 
 def run_clone
-  `git clone --recursive https://github.com/counterbeing/Vim-Configuration #{HOME}/.vim`
+  `git clone --recursive #{REPOSITORY} #{HOME}/.vim`
 end
 
 def corys_vim_config?
