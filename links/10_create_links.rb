@@ -1,10 +1,16 @@
-#! /usr/bin/env ruby
+# .
+class LinkDotfiles
+  extend Bootstrapper
+  MESSAGE = 'Linking plists...'.freeze
+  FOLDER = File.expand_path File.dirname(__FILE__)
+  FILES = Dir.glob(FOLDER + '/*.link')
 
-folder = File.expand_path File.dirname(__FILE__)
-files = Dir.glob(folder + "/*.link")
-
-files.each do |file|
-  filename = /\/([^\/]+).link$/.match(file)[1]
-  destination = HOME + "/." + filename
-  make_link_where_appropriate(file, destination)
+  def call
+    FILES.each do |file|
+      filename = %r{//([^/]+).link$/}.match(file)[1]
+      # filename = /\/([^\/]+).link$/.match(file)[1]
+      destination = Utils::HOME + '/.' + filename
+      make_link_where_appropriate(file, destination)
+    end
+  end
 end

@@ -1,5 +1,8 @@
-
-mas_list = <<-EOS
+# Install packages using Mas
+class MasInstallApps
+  extend Osx
+  MESSAGE = 'Installing app store apps...'.freeze
+  MAS_LIST = <<-EOS.freeze
 497799835 Xcode (8.2.1)
 413969927 AudioBookBinder (2.1)
 408981434 iMovie (10.1.4)
@@ -16,9 +19,12 @@ mas_list = <<-EOS
 915542151 Monity (1.4.1)
 EOS
 
-args = mas_list
-       .split("\n")
-       .map { |line| line[/\d+/] }
-       .join(' ')
+  def call
+    args = MAS_LIST
+           .split("\n")
+           .map { |line| line[/\d+/] }
+           .join(' ')
 
-system("mas install #{args}")
+    system("mas install #{args}")
+  end
+end

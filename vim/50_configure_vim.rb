@@ -1,28 +1,41 @@
-#! /usr/bin/env ruby
+# .
+class ConfigureVim
+  extend Bootstrapper
+  MESSAGE = 'Cloning the vim config into ~/.vim'.freeze
+  REPOSITORY = 'https://github.com/counterbeing/Vim-Configuration'.freeze
+  VIM_FOLDER = "#{Utils::HOME}/.vim".freeze
+  GIT_CONFIG = VIM_FOLDER + '/.git/config'
 
-puts 'Cloning the vim config into ~/.vim'
-REPOSITORY = 'https://github.com/counterbeing/Vim-Configuration'.freeze
-vim_folder = "#{HOME}/.vim"
-@git_config = vim_folder + '/.git/config'
-
-def run_clone
-  `git clone --recursive #{REPOSITORY} #{HOME}/.vim`
-end
-
-def corys_vim_config?
-  File.exist?(@git_config) &&
-    File.read(@git_config)[%r{counterbeing\/Vim-Configuration}]
-end
-
-if corys_vim_config?
-  Dir.chdir(vim_folder) do
-    `git pull`
+  def call
+    update_repo && return if corys_vim_config?
+    Utils.backup(VIM_FOLDER) if Dir.exist?(VIM_FOLDER)
+    run_clone
+    make_link
   end
-elsif Dir.exist?(vim_folder)
-  backup(vim_folder)
-  run_clone
-else
-  run_clone
-end
 
-make_link_where_appropriate("#{vim_folder}/.vimrc", "#{HOME}/.vimrc")
+  private
+
+  def update_repo
+    Dir.chdir(VIM_FOLDER) do
+      `git pull`
+    end
+  end
+
+  def make_link
+    Utils.make_link_where_appropriate(
+      "#{VIM_FOLDER}/.vimrc",
+      "#{Utils::HOME}/.vimrc"
+    )
+  end
+
+  def run_clone
+    `git clone --recursive #{REPOSITORY} #{Utils::HOME}/.vim`
+  end
+
+  def corys_vim_config?
+    state = File.exist?(GIT_CONFIG) &&
+            File.read(GIT_CONFIG)[%r{counterbeing\/Vim-Configuration}]
+    make_link
+    state
+  end
+end

@@ -1,21 +1,26 @@
-puts "Restarting applications with changed prefs..."
+  # .
+  class RestartApps
+    extend Osx
+    MESSAGE = 'Restarting apps...'.freeze
+    APPS = [
+      'Activity Monitor',
+      'Address Book',
+      'Calendar',
+      'Contacts',
+      'Dock',
+      'Finder',
+      'Mail',
+      'Messages',
+      'Safari',
+      'Spectacle',
+      'SystemUIServer',
+      'Transmission',
+      'Twitter'
+    ].freeze
 
-apps = [
-  "Activity Monitor", 
-  "Address Book", 
-  "Calendar", 
-  "Contacts", 
-  "Dock", 
-  "Finder", 
-  "Mail", 
-  "Messages", 
-  "Safari", 
-  "Spectacle", 
-  "SystemUIServer", 
-  "Transmission", 
-  "Twitter"
-]
-
-apps.each do |app|
-  `killall #{app} > /dev/null 2>&1`
-end
+    def call
+      APPS.each do |app|
+        `killall #{app} > /dev/null 2>&1`
+      end
+    end
+  end

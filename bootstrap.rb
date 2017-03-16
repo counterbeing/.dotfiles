@@ -1,12 +1,12 @@
 #! /usr/bin/env ruby
 
+require 'pry'
 require 'fileutils'
-require './lib/methods.rb'
 
 ROOT = File.expand_path File.dirname(__FILE__)
-INSTALLED_APPLICATIONS = Dir.entries("/Applications").join('').gsub(' ', '-').downcase
 
-module Tty extend self
+# rubocop:disable all
+module Tty extend self 
   def blue; bold 34; end
   def white; bold 39; end
   def red; underline 31; end
@@ -15,31 +15,19 @@ module Tty extend self
   def underline n; escape "4;#{n}" end
   def escape n; "\033[#{n}m" if STDOUT.tty? end
 end
+# rubocop:enable all
 
-unless `uname`.chomp == 'Darwin'
-  abort "#{Tty.red}Sorry, your OS is not supported#{Tty.reset}"
+def require_recursively(folder)
+  Dir.glob("#{folder}/**/*.rb")
+     .sort { |a, b| a.scan(%r{/}).count <=> b.scan(%r{/}).count }
+     .each { |file| require_relative file }
 end
 
-def run_each_in_dir(dir)
-  dir = ROOT + '/' + dir
-  entries = Dir.glob(dir + '/*.rb')
-  entries.sort!
-  entries.each do |e|
-    require(e)
-  end
-end
+require_recursively('lib')
+require_relative('links/10_create_links.rb')
+require_recursively('osx')
+require_recursively('vim')
 
-[
-  'osx/brew',
-  'osx/prefs',
-  'links',
-  'osx/rbenv',
-  'node',
-  'git',
-  'vim',
-  'osx/atom',
-  'osx/mas'
-].each do |folder|
-  puts "#{Tty.blue}Configuring #{folder}...#{Tty.reset}"
-  run_each_in_dir(folder)
-end
+binding.pry
+'hi'
+
