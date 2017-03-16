@@ -1,6 +1,7 @@
 # Install packages using Brew
 class ConfigureAtom
   extend Osx
+  include Osx
   MESSAGE = 'Installing atom packages'.freeze
   DEPENDENCIES = %w(brew_gui).freeze
 

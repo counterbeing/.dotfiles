@@ -1,6 +1,7 @@
 # .
 class RestartApps
   extend Osx
+  include Osx
   DEPENDENCIES = %w(
     link_plists preferences_dock_and_dash preferences_system
   ).freeze

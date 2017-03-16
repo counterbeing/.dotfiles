@@ -16,11 +16,6 @@ class LinuxShellExtensions
     ~/.fzf/install --key-bindings --completion --no-update-rc
   EOS
 
-  FZF = <<-EOS
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install --key-bindings --completion --no-update-rc
-  EOS
-
   THEFUCK = 'sudo pip install psutil thefuck'
 
   AUTOENV = <<-EOS

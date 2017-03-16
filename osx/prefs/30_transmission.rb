@@ -1,6 +1,7 @@
 # .
 class PreferencesTransmission
   extend Osx
+  include Osx
   MESSAGE = 'Setting transmission prefs'.freeze
   DEPENDENCIES = %w(brew_gui).freeze
   def call

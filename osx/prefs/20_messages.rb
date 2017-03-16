@@ -1,6 +1,7 @@
 # .
 class PreferencesMessages
   extend Osx
+  include Osx
   MESSAGE = 'Setting prefs for messages app'.freeze
 
   def call

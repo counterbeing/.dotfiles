@@ -1,6 +1,7 @@
 # .
 class MasXcodeFollowup
   extend Osx
+  include Osx
   MESSAGE = 'Accepting ToS from Xcode...'.freeze
   DEPENDENCIES = %w(mas_install_apps).freeze
 

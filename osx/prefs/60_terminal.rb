@@ -1,6 +1,7 @@
   # .
   class PreferencesTerminal
     extend Osx
+    include Osx
     MESSAGE = 'Setting dock and dash prefs'.freeze
     DEPENDENCIES = %w(brew_gui).freeze
 

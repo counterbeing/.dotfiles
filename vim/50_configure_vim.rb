@@ -1,7 +1,7 @@
 # .
 class ConfigureVim
   extend Bootstrapper
-  DEPENDENCIES = %w(brew_cli install_vim).freeze
+  DEPENDENCIES = %w(brew_cli linux_install_vim).freeze
   MESSAGE = 'Cloning the vim config into ~/.vim'.freeze
   REPOSITORY = 'https://github.com/counterbeing/Vim-Configuration'.freeze
   VIM_FOLDER = "#{Utils::HOME}/.vim".freeze
@@ -12,9 +12,14 @@ class ConfigureVim
     Utils.backup(VIM_FOLDER) if Dir.exist?(VIM_FOLDER)
     run_clone
     make_link
+    install_plugins
   end
 
   private
+
+  def install_plugins
+    `vim +PlugInstall +qall`
+  end
 
   def update_repo
     Dir.chdir(VIM_FOLDER) do

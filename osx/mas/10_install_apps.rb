@@ -1,6 +1,7 @@
 # Install packages using Mas
 class MasInstallApps
   extend Osx
+  include Osx
   DEPENDENCIES = %w(brew_cli).freeze
   MESSAGE = 'Installing app store apps...'.freeze
   MAS_LIST = <<-EOS.freeze
