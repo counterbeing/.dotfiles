@@ -10,5 +10,6 @@ require_recursively('lib')
 require_relative('links/10_create_links.rb')
 require_recursively('osx')
 require_recursively('vim')
+require_recursively('linux')
 
 BootstrapRunner.call

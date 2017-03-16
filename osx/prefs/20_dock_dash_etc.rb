@@ -1,6 +1,7 @@
 # .
 class PreferencesDockAndDash
   extend Osx
+  include Osx
   MESSAGE = 'Setting dock and dash prefs'.freeze
 
   def call
@@ -52,4 +53,4 @@ class PreferencesDockAndDash
     # Make Dock icons of hidden applications translucent
     `defaults write com.apple.dock showhidden -bool true`
   end
-  end
+end

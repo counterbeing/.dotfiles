@@ -1,9 +1,11 @@
 # .
 class LinkPlists
   extend Osx
+  include Osx
   MESSAGE = 'Linking plists...'.freeze
 
   def call
+    puts self.class::PLATFORMS
     prefs_destination = Utils::HOME + '/Library/Preferences'
     prefs_source = (File.expand_path File.dirname(__FILE__)) + '/plists'
     files = Dir.glob(prefs_source + '/*.plist')

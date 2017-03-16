@@ -1,6 +1,7 @@
 # .
 class PreferencesSystem
   extend Osx
+  include Osx
   MESSAGE = 'Setting system prefs'.freeze
 
   def call

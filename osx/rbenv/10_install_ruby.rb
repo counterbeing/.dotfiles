@@ -3,10 +3,7 @@ class InstallRuby
   extend Osx
   DEPENDENCIES = %w(brew_cli).freeze
   MESSAGE = 'Installing ruby...'.freeze
-  INSTALLED_VERSIONS = `rbenv versions`.freeze
-  DESIRED_VERSIONS = [
-    '2.4.0'
-  ].freeze
+  DESIRED_VERSIONS = ['2.4.0'].freeze
 
   def call
     DESIRED_VERSIONS.each do |version|
@@ -15,5 +12,9 @@ class InstallRuby
         `rbenv install #{version}`
       end
     end
+  end
+
+  def installed_versions
+    @installed_versions ||= `rbenv versions`
   end
 end

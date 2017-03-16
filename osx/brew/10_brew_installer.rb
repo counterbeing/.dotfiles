@@ -1,6 +1,7 @@
 # Install packages using Brew
 class BrewInstaller
   extend Osx
+  include Osx
   MESSAGE = 'Installing brew package manager...'.freeze
 
   def call
