@@ -40,6 +40,8 @@
     tabType: "soft"
   "exception-reporting":
     userId: "69e97a2c-a40b-a056-9615-6722c5e60933"
+  "find-and-replace":
+    liveSearchMinimumCharacters: 4
   "fuzzy-finder":
     preserveLastSearch: true
     searchAllPanes: true
@@ -48,7 +50,9 @@
     statusIconScope: "File"
   "linter-reek": {}
   "linter-rubocop":
-    command: "/Users/cory/.rbenv/versions/2.3.1/bin/rubocop"
+    command: "/Users/cory/.rbenv/shims/rubocop"
+  "linter-scss-lint":
+    executablePath: "/Users/cory/.rbenv/versions/2.3.1/bin/scss-lint"
   "markdown-preview-plus": {}
   minimap:
     autoToggle: false
@@ -56,7 +60,8 @@
   "rubocop-auto-correct":
     correctFile: true
     rubocopCommandPath: "/Users/cory/.rbenv/shims/rubocop"
-  "seti-syntax": {}
+  "seti-syntax":
+    themeColor: "Green"
   "seti-ui":
     compactView: true
     disableAnimations: true
@@ -73,6 +78,7 @@
     alwaysOpenExisting: true
     autoReveal: true
     hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
     squashDirectoryNames: true
   "vim-mode":
     useClipboardAsDefaultRegister: false
