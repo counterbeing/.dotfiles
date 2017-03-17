@@ -8,7 +8,7 @@ class LinuxShellExtensions
   DIFF_SO_FANCY = <<-EOS.freeze
     curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
     sudo apt-get install nodejs
-    npm install diff-so-fancy
+    sudo npm install -g diff-so-fancy
   EOS
 
   FZF = <<-EOS.freeze
