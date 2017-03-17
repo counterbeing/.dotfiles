@@ -50,13 +50,13 @@ export UPDATE_ZSH_DAYS=60
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails bower aws brew command-not-found docker git-extras)
+plugins=(git rails command-not-found docker git-extras)
 
 source $ZSH/oh-my-zsh.sh
 
 unsetopt share_history
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
@@ -76,7 +76,7 @@ fpath=("/usr/local/bin/" $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # AWS Cli completion
-source /usr/local/bin/aws_zsh_completer.sh
+[ -f /usr/local/bin/aws_zsh_completer.sh ] && source /usr/local/bin/aws_zsh_completer.sh
 
 if [ $commands[kubectl] ]; then
   source <(kubectl completion zsh)
@@ -103,7 +103,7 @@ eval "$(rbenv init - zsh)"
 
 # Setup NVM 
 export NVM_DIR="$HOME/.nvm"
-  . "/usr/local/opt/nvm/nvm.sh"
+[ -f /usr/local/opt/nvm/nvm.sh ] &&   . "/usr/local/opt/nvm/nvm.sh"
 # export NVM_DIR=~/.nvm
 # source $(brew --prefix nvm)/nvm.sh
 autoload -U add-zsh-hook
@@ -114,7 +114,7 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 
-source /usr/local/opt/autoenv/activate.sh
+[ -f /usr/local/opt/autoenv/activate.sh ] && source /usr/local/opt/autoenv/activate.sh
 
 # thefuck Integration
 # https://github.com/nvbn/thefuck
