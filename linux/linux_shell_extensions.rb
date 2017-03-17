@@ -3,7 +3,7 @@ class LinuxShellExtensions
   extend Bootstrapper
   include LinuxUtilities
   MESSAGE = 'Installing shell extensions...'.freeze
-  DEPENDENCIES = [%w(linux_install_vim)].freeze
+  DEPENDENCIES = %w(linux_install_vim).freeze
 
   DIFF_SO_FANCY = <<-EOS.freeze
     curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
@@ -30,5 +30,6 @@ class LinuxShellExtensions
     system(DIFF_SO_FANCY)
     system(FZF)
     system(THEFUCK)
+    system(AUTOENV)
   end
 end
