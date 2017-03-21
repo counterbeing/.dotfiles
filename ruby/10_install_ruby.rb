@@ -11,6 +11,7 @@ class InstallRuby
       puts "    Installing version #{version} within rbenv."
       `rbenv install #{version}`
     end
+    `rbenv rehash`
   end
 
   def installed_versions
