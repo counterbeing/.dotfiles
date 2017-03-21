@@ -19,9 +19,9 @@ alias kd='kubectl describe'
 alias ku='kubectl'
 
 # Docker
-alias docker_kill_all="docker kill $(docker ps -q)"
-alias docker_remove_all="docker rm $(docker ps -a -q)"
-alias docker_remove_all_images="docker rmi $(docker images -q)"
+# alias docker_kill_all="docker kill $(docker ps -q)"
+# alias docker_remove_all="docker rm $(docker ps -a -q)"
+# alias docker_remove_all_images="docker rmi $(docker images -q)"
 
 #Git
 alias gp="git push"
