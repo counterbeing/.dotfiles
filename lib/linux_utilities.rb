@@ -1,5 +1,6 @@
 # .
 module LinuxUtilities
+  PLATFORMS = [:linux].freeze
   def install_apt_packages(packages)
     package_string = packages.join(' ')
     puts 'updating apt'
