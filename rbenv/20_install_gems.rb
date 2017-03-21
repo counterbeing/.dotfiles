@@ -1,4 +1,13 @@
-# puts "Installing gems..."
-# `rbenv global 2.1.4`
-# `RBENV_VERSION="
-# `gem install bundler`
+# .
+class InstallGems
+  DEPENDENCIES = %w(install_ruby).freeze
+  MESSAGE = 'Installing gems...'.freeze
+  DESIRED_VERSIONS = ['2.4.0'].freeze
+
+  def call
+    `
+      rbenv global 2.4.0
+      gem install bundler rubocop scss-lint pry
+    `
+  end
+end
