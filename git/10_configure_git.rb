@@ -17,5 +17,6 @@ class ConfigureGit
     `git config --global alias.rcm 'commit -c HEAD --reset-author'`
     `git config --global alias.rbm '!git fetch origin master && git rebase origin/master'`
     `git config --global alias.set-origin 'remote set-url origin'`
+    `git config --global core.ignorecase true`
   end
 end
