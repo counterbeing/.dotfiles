@@ -9,9 +9,9 @@ class InstallRuby
     `sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev`
     DESIRED_VERSIONS.each do |version|
       puts "    Installing version #{version} within rbenv."
-      `rbenv install #{version}`
+      `export PATH="$HOME/.rbenv/bin:$PATH"; rbenv install -s #{version}`
     end
-    `rbenv rehash`
+    `export PATH="$HOME/.rbenv/bin:$PATH"; rbenv rehash`
   end
 
   def installed_versions
