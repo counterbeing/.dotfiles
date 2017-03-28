@@ -1,6 +1,6 @@
 # General
 alias refresh='source ~/.zshrc'
-alias vi='/usr/local/bin/vim'
+alias vi='vim'
 alias ls='ls -alFG'
 alias pping="ping -a 8.8.8.8"
 alias ..="cd .."

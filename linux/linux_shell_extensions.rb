@@ -25,7 +25,7 @@ class LinuxShellExtensions
 
   def call
     install_apt_packages(
-      %w(ack-grep pick jq git-crypt tmate mosh)
+      %w(ack-grep pick jq git-crypt tmate mosh gnupg-agent)
     )
     system(DIFF_SO_FANCY)
     system(FZF)

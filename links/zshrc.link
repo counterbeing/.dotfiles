@@ -6,7 +6,6 @@ export SHELL=/usr/local/bin/zsh
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-
 if [ ! -d ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 fi
@@ -136,5 +135,10 @@ ulimit -n 10240
 # Load up any input ZLE things, reference here:
 source ~/.zsh_input
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [[ "$(uname)" == "Darwin" ]]; then
+elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
+  source ~/.linux_config
+fi
+
