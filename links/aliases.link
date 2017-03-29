@@ -11,7 +11,7 @@ alias ln='ln -v'
 alias mkdir='mkdir -p'
 alias ...='../..'
 alias weather='curl http://wttr.in/san_francisco'
-alias change_repo_to_https='~/.scripts/switch_repo_to_ssh.sh'
+alias change_repo_to_ssh='~/.scripts/switch_repo_to_ssh.sh'
 
 # Kubernetes
 alias kgp='kubectl get pods -o wide'
