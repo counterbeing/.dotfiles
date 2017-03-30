@@ -1,4 +1,4 @@
 
 if (( $+commands[keychain] )) ; then
-  eval `keychain --eval --agents ssh,gpg --inherit any id_rsa id_ed25519`
+  eval `keychain --eval --agents ssh,gpg --inherit any id_rsa id_ed25519 F3B927DF`
 fi
