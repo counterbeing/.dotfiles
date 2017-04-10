@@ -8,6 +8,9 @@ export SHELL=/usr/local/bin/zsh
 
 if [ ! -d ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+  # It replaces our .zshrc if it exists already, and that's no good.
+  rm .zshrc
+  mv .zshrc.pre-oh-my-zsh .zshrc
 fi
 
 # Path to your oh-my-zsh installation.
