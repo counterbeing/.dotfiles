@@ -3,7 +3,7 @@ class InstallRuby
   extend Bootstrapper
   DEPENDENCIES = %w(brew_cli linux_rbenv_install).freeze
   MESSAGE = 'Installing ruby...'.freeze
-  DESIRED_VERSIONS = ['2.4.0'].freeze
+  DESIRED_VERSIONS = ['2.4.1'].freeze
 
   def call
     `sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev`

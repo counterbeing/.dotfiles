@@ -18,7 +18,8 @@ class ConfigureVim
   private
 
   def install_plugins
-    `vim +PlugInstall +qall`
+    puts 'Installing vim plugins'
+    system('vim +PlugInstall +qall')
   end
 
   def update_repo
