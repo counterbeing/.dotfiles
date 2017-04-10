@@ -19,7 +19,10 @@ class ConfigureVim
 
   def install_plugins
     puts 'Installing vim plugins'
-    system('vim +PlugInstall +qall')
+    # We prevent loading any vim config for installing plugins as the config
+    # raises errors that require user intervention without the plugins
+    # installed.
+    `vim -u NONE --cmd "source $HOME/.vim/plug.vim" +PlugInstall +qall`
   end
 
   def update_repo

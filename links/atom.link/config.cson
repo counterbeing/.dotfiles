@@ -45,9 +45,7 @@
   "fuzzy-finder":
     preserveLastSearch: true
     searchAllPanes: true
-  linter:
-    showErrorPanel: false
-    statusIconScope: "File"
+  linter: {}
   "linter-reek": {}
   "linter-rubocop":
     command: "/Users/cory/.rbenv/shims/rubocop"
