@@ -5,6 +5,7 @@
       _analyticsUserId: "ae612e20-03dc-402d-a8df-30f9064fbf49"
   "atom-ctags":
     autoBuildTagsWhenActive: true
+    cmdArgs: "--exclude=node_modules --exclude=bower_components --exclude=./tmp --exclude=.git"
   "command-palette":
     preserveLastSearch: true
   core:
@@ -12,6 +13,8 @@
       "symbols-view"
       "linter-reek"
       "arduino-upload"
+      "atom-pair"
+      "linter-jshint"
     ]
     ignoredNames: [
       ".git"
@@ -35,7 +38,7 @@
     ]
     useCustomTitleBar: true
   editor:
-    fontSize: 12
+    fontSize: 11
     showIndentGuide: true
     tabType: "soft"
   "exception-reporting":
@@ -46,14 +49,21 @@
     preserveLastSearch: true
     searchAllPanes: true
   linter: {}
+  "linter-jshint":
+    disableWhenNoJshintrcFileInPath: true
   "linter-reek": {}
   "linter-rubocop":
     command: "/Users/cory/.rbenv/shims/rubocop"
   "linter-scss-lint":
     executablePath: "/Users/cory/.rbenv/versions/2.3.1/bin/scss-lint"
+  "linter-ui-default":
+    panelHeight: 67
+    showPanel: true
   "markdown-preview-plus": {}
   minimap:
     autoToggle: false
+  "one-light-ui":
+    layoutMode: "Compact"
   "rails-rspec": {}
   "rubocop-auto-correct":
     correctFile: true
@@ -72,9 +82,9 @@
     syncHorizontalScroll: true
   tabs:
     addNewTabsAtEnd: true
+  "theme-switch": {}
   "tree-view":
     alwaysOpenExisting: true
-    autoReveal: true
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
     squashDirectoryNames: true
