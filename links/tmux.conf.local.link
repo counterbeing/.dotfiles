@@ -135,10 +135,11 @@ bind a send-prefix
 # set -g visual-activity on
 
 # setup 'v' to begin selection as in Vim
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 
 # update default binding of 'Enter' to also use copy-pipe
-unbind -t vi-copy Enter
+unbind -T copy-mode-vi Enter
 
 # Make the current window the first window
 bind T swap-window -t 1
