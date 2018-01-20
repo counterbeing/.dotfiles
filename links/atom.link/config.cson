@@ -15,6 +15,7 @@
       "arduino-upload"
       "atom-pair"
       "linter-jshint"
+      "language-gfm"
     ]
     ignoredNames: [
       ".git"
@@ -46,6 +47,9 @@
   "find-and-replace":
     liveSearchMinimumCharacters: 4
   "fuzzy-finder":
+    ignoredNames: [
+      "node_modules/*"
+    ]
     preserveLastSearch: true
     searchAllPanes: true
   linter: {}
