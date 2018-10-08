@@ -98,14 +98,16 @@ source ~/.aliases
 # Add node path
 export NODE_PATH=/usr/local/share/npm/lib/node_modules
 export PATH="/usr/local/share/npm/bin:$PATH"
-  
+
 # Start rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
-# Setup NVM 
-export NVM_DIR="$HOME/.nvm"
-[ -f /usr/local/opt/nvm/nvm.sh ] &&   . "/usr/local/opt/nvm/nvm.sh"
+# Setup NVM
+# export NVM_DIR="$HOME/.nvm"
+# [ -f /usr/local/opt/nvm/nvm.sh ] &&  . "/usr/local/opt/nvm/nvm.sh"
+export NVM_DIR=~/.nvm
+. $(brew --prefix nvm)/nvm.sh
 # export NVM_DIR=~/.nvm
 # source $(brew --prefix nvm)/nvm.sh
 autoload -U add-zsh-hook
@@ -116,20 +118,21 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 
-[ -f /usr/local/opt/autoenv/activate.sh ] && source /usr/local/opt/autoenv/activate.sh
+
+eval "$(direnv hook zsh)"
 
 # thefuck Integration
 # https://github.com/nvbn/thefuck
 eval "$(thefuck --alias)"
 
 # sbin path for brew
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:/anaconda3/bin:$PATH"
 
 # Fixes issues with too many threads
 ulimit -n 10240
 
 # Load local configuration file if it exists, this is a away of extending
-# this configuration, without commiting changes that could include 
+# this configuration, without commiting changes that could include
 # sensitive environment variables, or just things that won't be usefule
 # anywhere else. This file will be created for you if it does not already
 # exist.
@@ -145,3 +148,10 @@ elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
   source ~/.linux_config
 fi
 
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/cory/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/cory/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/cory/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/cory/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh

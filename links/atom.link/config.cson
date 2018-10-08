@@ -10,12 +10,11 @@
     preserveLastSearch: true
   core:
     disabledPackages: [
-      "symbols-view"
       "linter-reek"
-      "arduino-upload"
       "atom-pair"
       "linter-jshint"
       "language-gfm"
+      "markdown-preview"
     ]
     ignoredNames: [
       ".git"
@@ -26,6 +25,7 @@
       "Thumbs.db"
       ".tags"
       ".tags1"
+      "node_modules"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
@@ -37,9 +37,9 @@
       "seti-ui"
       "seti-syntax"
     ]
-    useCustomTitleBar: true
+    titleBar: "custom"
   editor:
-    fontSize: 11
+    fontSize: 12
     showIndentGuide: true
     tabType: "soft"
   "exception-reporting":
@@ -53,15 +53,20 @@
     preserveLastSearch: true
     searchAllPanes: true
   linter: {}
+  "linter-eslint":
+    lintHtmlFiles: true
+  "linter-gcc":
+    execPath: "/usr/local/Cellar/gcc/8.2.0/bin/gcc-8"
+    gccDefaultCppFlags: "-c -Wall -std=c++11 -fsyntax-only"
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
   "linter-reek": {}
   "linter-rubocop":
-    command: "/Users/cory/.rbenv/shims/rubocop"
+    command: "/Users/cory/.rbenv/versions/2.3.3/bin/rubocop"
   "linter-scss-lint":
     executablePath: "/Users/cory/.rbenv/versions/2.3.1/bin/scss-lint"
   "linter-ui-default":
-    panelHeight: 67
+    panelHeight: 143
     showPanel: true
   "markdown-preview-plus": {}
   minimap:
@@ -73,7 +78,7 @@
     correctFile: true
     rubocopCommandPath: "/Users/cory/.rbenv/shims/rubocop"
   "seti-syntax":
-    themeColor: "Green"
+    themeColor: "Purple"
   "seti-ui":
     compactView: true
     disableAnimations: true
@@ -87,12 +92,22 @@
   tabs:
     addNewTabsAtEnd: true
   "theme-switch": {}
+  "theme-switcher":
+    syntaxThemeOne: "seti-syntax"
+    syntaxThemeTwo: "one-light-syntax"
+    uiThemeOne: "seti-ui"
+  "theme-toggler":
+    darkSyntaxTheme: "seti-syntax"
+    darkUiTheme: "seti-ui"
+    lightSyntaxTheme: "one-light-syntax"
+    lightUiTheme: "one-light-ui"
   "tree-view":
     alwaysOpenExisting: true
     hideIgnoredNames: true
-    hideVcsIgnoredFiles: true
     squashDirectoryNames: true
   "vim-mode":
+    useClipboardAsDefaultRegister: false
+  "vim-mode-plus":
     useClipboardAsDefaultRegister: false
   welcome:
     showOnStartup: false

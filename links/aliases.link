@@ -24,6 +24,8 @@ alias ku='kubectl'
 # alias docker_remove_all="docker rm $(docker ps -a -q)"
 # alias docker_remove_all_images="docker rmi $(docker images -q)"
 
+alias y="yarn"
+
 #Git
 alias gp="git push"
 alias gphm="git push heroku master"
@@ -78,6 +80,7 @@ function update_all {
   brew update;
   brew upgrade;
   brew prune;
+  brew cleanup;
   upgrade_oh_my_zsh;
   ~/.vim/update_plugins.sh
   softwareupdate --list;
@@ -105,7 +108,7 @@ function gpo {
 }
 
 function flush_dns_cache {
-  sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder; 
+  sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;
 }
 
 # Get most recently used git branches via the reflog, then allow you to pick one
@@ -164,4 +167,13 @@ system("sudo ifconfig en0 down")
 system("sudo ifconfig en0 up")
 
 EORUBY
+=======
+
+function check_cert {
+  echo | openssl s_client -showcerts -servername $1 -connect $1:443 2>/dev/null | openssl x509 -inform pem -noout -text
+}
+
+
+function done {
+  terminal-notifier -message 'done'
 }

@@ -9,3 +9,6 @@ node=/usr/local/share/npm/bin
 #eval "$(rbenv init -)"
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
+
+# added by Anaconda3 5.0.1 installer
+export PATH="/anaconda3/bin:$PATH"
