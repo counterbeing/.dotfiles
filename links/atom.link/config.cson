@@ -9,6 +9,7 @@
   "command-palette":
     preserveLastSearch: true
   core:
+    closeEmptyWindows: false
     disabledPackages: [
       "linter-reek"
       "atom-pair"
@@ -39,7 +40,9 @@
     ]
     titleBar: "custom"
   editor:
-    fontSize: 12
+    fontFamily: "Liga Inconsolata, Meslo"
+    fontSize: 17
+    lineHeight: 1.3
     showIndentGuide: true
     tabType: "soft"
   "exception-reporting":
@@ -63,16 +66,24 @@
   "linter-reek": {}
   "linter-rubocop":
     command: "/Users/cory/.rbenv/versions/2.3.3/bin/rubocop"
+  "linter-sass-lint":
+    noConfigDisable: true
   "linter-scss-lint":
+    disableWhenNoConfigFileInPath: true
     executablePath: "/Users/cory/.rbenv/versions/2.3.1/bin/scss-lint"
   "linter-ui-default":
-    panelHeight: 143
-    showPanel: true
+    panelHeight: 156
   "markdown-preview-plus": {}
   minimap:
     autoToggle: false
   "one-light-ui":
     layoutMode: "Compact"
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+      showInStatusBar: true
+    useEslint: true
+    useStylelint: true
   "rails-rspec": {}
   "rubocop-auto-correct":
     correctFile: true

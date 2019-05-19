@@ -151,29 +151,38 @@ function whats_using {
   fi
 }
 
-function randomize_mac_address {
-/usr/bin/env ruby <<-EORUBY
-used_characters = %w(0 1 2 3 4 5 6 7 8 9 a b c d e f)
-spoofed_mac = Array
-              .new(12) { used_characters.sample }
-              .each_slice(2)
-              .map(&:join)
-              .join(':')
-puts "Your new MAC address is #{spoofed_mac}"
-system("sudo ifconfig en0 ether #{spoofed_mac}")
-sleep(2)
-puts 'Restarting airport'
-system("sudo ifconfig en0 down")
-system("sudo ifconfig en0 up")
-
-EORUBY
-=======
+# function randomize_mac_address {
+# /usr/bin/env ruby <<-EORUBY
+# used_characters = %w(0 1 2 3 4 5 6 7 8 9 a b c d e f)
+# spoofed_mac = Array
+#               .new(12) { used_characters.sample }
+#               .each_slice(2)
+#               .map(&:join)
+#               .join(':')
+# puts "Your new MAC address is #{spoofed_mac}"
+# system("sudo ifconfig en0 ether #{spoofed_mac}")
+# sleep(2)
+# puts 'Restarting airport'
+# system("sudo ifconfig en0 down")
+# system("sudo ifconfig en0 up")
+#
+# EORUBY
+# =======
 
 function check_cert {
   echo | openssl s_client -showcerts -servername $1 -connect $1:443 2>/dev/null | openssl x509 -inform pem -noout -text
 }
 
-
-function done {
+function notif {
   terminal-notifier -message 'done'
 }
+
+function watch_wifi {
+  clear; while x=1; do /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | 
+  grep CtlRSSI | 
+  sed -e 's/^.*://g' | 
+  xargs -I SIGNAL printf "\rRSSI dBm: SIGNAL"; 
+  sleep 0.5; done
+}
+
+
