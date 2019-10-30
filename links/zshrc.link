@@ -80,6 +80,10 @@ unsetopt share_history
 
 zstyle ':completion:::git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
 
+
+# Add go
+fpath=("/Users/cory/go/bin/" $fpath)
+
 # Add homebrew to the completion path
 fpath=("/usr/local/bin/" $fpath)
 
@@ -135,7 +139,8 @@ eval "$(direnv hook zsh)"
 eval "$(thefuck --alias)"
 
 # sbin path for brew
-export PATH="/usr/local/sbin:/anaconda3/bin:$PATH"
+# export PATH="/usr/local/sbin:/anaconda3/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 
 # Fixes issues with too many threads
 ulimit -n 10240

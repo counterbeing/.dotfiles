@@ -6,6 +6,9 @@
   "atom-ctags":
     autoBuildTagsWhenActive: true
     cmdArgs: "--exclude=node_modules --exclude=bower_components --exclude=./tmp --exclude=.git"
+  "atom-ide-ui":
+    "atom-ide-code-format":
+      formatOnSave: true
   "command-palette":
     preserveLastSearch: true
   core:
@@ -16,6 +19,7 @@
       "linter-jshint"
       "language-gfm"
       "markdown-preview"
+      "linter"
     ]
     ignoredNames: [
       ".git"
@@ -27,6 +31,10 @@
       ".tags"
       ".tags1"
       "node_modules"
+      ".pioenvs"
+      ".piolibdeps"
+      ".clang_complete"
+      ".gcc-flags.json"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
@@ -47,6 +55,10 @@
     tabType: "soft"
   "exception-reporting":
     userId: "69e97a2c-a40b-a056-9615-6722c5e60933"
+  "file-icons":
+    coloured: false
+  "file-types":
+    ".envrc": "source.shell"
   "find-and-replace":
     liveSearchMinimumCharacters: 4
   "fuzzy-finder":
@@ -55,24 +67,30 @@
     ]
     preserveLastSearch: true
     searchAllPanes: true
+  "go-plus":
+    autocomplete: {}
   linter: {}
   "linter-eslint":
     lintHtmlFiles: true
   "linter-gcc":
     execPath: "/usr/local/Cellar/gcc/8.2.0/bin/gcc-8"
     gccDefaultCppFlags: "-c -Wall -std=c++11 -fsyntax-only"
+  "linter-golinter":
+    executablePath: "/Users/cory/go/bin/golint"
   "linter-jshint":
     disableWhenNoJshintrcFileInPath: true
   "linter-reek": {}
   "linter-rubocop":
-    command: "/Users/cory/.rbenv/versions/2.3.3/bin/rubocop"
+    command: "/Users/cory/.rbenv/versions/2.6.3/bin/rubocop"
   "linter-sass-lint":
     noConfigDisable: true
   "linter-scss-lint":
     disableWhenNoConfigFileInPath: true
     executablePath: "/Users/cory/.rbenv/versions/2.3.1/bin/scss-lint"
   "linter-ui-default":
-    panelHeight: 156
+    panelHeight: 55
+    showPanel: true
+    useBusySignal: false
   "markdown-preview-plus": {}
   minimap:
     autoToggle: false
@@ -82,8 +100,6 @@
     formatOnSaveOptions:
       enabled: true
       showInStatusBar: true
-    useEslint: true
-    useStylelint: true
   "rails-rspec": {}
   "rubocop-auto-correct":
     correctFile: true
@@ -112,6 +128,8 @@
     darkUiTheme: "seti-ui"
     lightSyntaxTheme: "one-light-syntax"
     lightUiTheme: "one-light-ui"
+  "tool-bar":
+    position: "Left"
   "tree-view":
     alwaysOpenExisting: true
     hideIgnoredNames: true
@@ -122,3 +140,4 @@
     useClipboardAsDefaultRegister: false
   welcome:
     showOnStartup: false
+  whitespace: {}
