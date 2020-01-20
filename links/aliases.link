@@ -34,6 +34,7 @@ alias gppm="git push production master"
 alias ggraph="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 alias glol="git log --oneline --graph --decorate"
 alias dif="git diff --color | diff-so-fancy | less"
+alias lab="https_proxy=socks5://localhost:8118 lab"
 
 alias kon="kontena"
 
@@ -174,7 +175,7 @@ function check_cert {
 }
 
 function notif {
-  terminal-notifier -message 'done'
+  terminal-notifier -message 'done' -ignoreDnD -sound 'pop' -group 'notif'
 }
 
 function watch_wifi {

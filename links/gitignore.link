@@ -18,3 +18,4 @@ tags
 .tags1
 .vscode
 .metadata_never_index
+.env

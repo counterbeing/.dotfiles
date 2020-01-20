@@ -49,7 +49,7 @@
     titleBar: "custom"
   editor:
     fontFamily: "Liga Inconsolata, Meslo"
-    fontSize: 17
+    fontSize: 15
     lineHeight: 1.3
     showIndentGuide: true
     tabType: "soft"
@@ -87,6 +87,9 @@
   "linter-scss-lint":
     disableWhenNoConfigFileInPath: true
     executablePath: "/Users/cory/.rbenv/versions/2.3.1/bin/scss-lint"
+  "linter-terraform-syntax":
+    newVersion: true
+    useTerraformFormat: true
   "linter-ui-default":
     panelHeight: 55
     showPanel: true
@@ -118,6 +121,7 @@
     syncHorizontalScroll: true
   tabs:
     addNewTabsAtEnd: true
+  "terraform-fmt": {}
   "theme-switch": {}
   "theme-switcher":
     syntaxThemeOne: "seti-syntax"

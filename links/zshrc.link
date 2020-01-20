@@ -1,3 +1,6 @@
+# Profiling: To use uncomment here and at end of doc
+# zmodload zsh/zprof
+
 export EDITOR=vim
 export VISUAL=vim
 export SHELL=/usr/local/bin/zsh
@@ -93,9 +96,9 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # AWS Cli completion
 [ -f /usr/local/bin/aws_zsh_completer.sh ] && source /usr/local/bin/aws_zsh_completer.sh
 
-if [ $commands[kubectl] ]; then
-  source <(kubectl completion zsh)
-fi
+# if [ $commands[kubectl] ]; then
+#   source <(kubectl completion zsh)
+# fi
 
 
 #----------------------------------------------------------#
@@ -116,20 +119,32 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
+
+
+# normal brew nvm shell config lines minus the 2nd one
+# lazy loading the bash completions does not save us meaningful shell startup time, so we won't do it
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+# add our default nvm node (`nvm alias default 10.16.0`) to path without loading nvm
+export PATH="$NVM_DIR/versions/node/v$(<$NVM_DIR/alias/default)/bin:$PATH"
+# alias `nvm` to this one liner lazy load of the normal nvm script
+alias nvm="unalias nvm; [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"; nvm $@"
+
 # Setup NVM
 # export NVM_DIR="$HOME/.nvm"
 # [ -f /usr/local/opt/nvm/nvm.sh ] &&  . "/usr/local/opt/nvm/nvm.sh"
-export NVM_DIR=~/.nvm
-. $(brew --prefix nvm)/nvm.sh
 # export NVM_DIR=~/.nvm
-# source $(brew --prefix nvm)/nvm.sh
-autoload -U add-zsh-hook
-load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
+# . $(brew --prefix nvm)/nvm.sh
+# # export NVM_DIR=~/.nvm
+# # source $(brew --prefix nvm)/nvm.sh
+# autoload -U add-zsh-hook
+# load-nvmrc() {
+#   if [[ -f .nvmrc && -r .nvmrc ]]; then
+#     nvm use
+#   fi
+# }
+# add-zsh-hook chpwd load-nvmrc
 
 
 eval "$(direnv hook zsh)"
@@ -169,3 +184,12 @@ fi
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/cory/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/cory/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+# End Profiling
+# zprof
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
