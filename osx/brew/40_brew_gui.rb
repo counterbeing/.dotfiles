@@ -6,6 +6,11 @@ class BrewGui
   DEPENDENCIES = %w(brew_installer).freeze
 
   RECIPES = [
+    'sourcetree',
+    'steam',
+    'eagle',
+    'private-internet-access',
+    '1password-cli',
     'adapter',         # Media converter
     'airfoil',         # Stream to airplay devices and more
     'alfred',          # App and file launcher
