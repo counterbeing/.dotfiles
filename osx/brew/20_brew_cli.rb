@@ -26,11 +26,9 @@ class BrewCli
     'ghostscript',                # PDF support for imagemagick
     'git',                        # Version control
     'git-crypt',
-    'git-flow',                   #
     'gnupg',                      # For securing messages
     'go',
     'gpg-agent',
-    'graphviz',
     'heroku',
     'htop-osx',                   # Activity monitor
     'httpie',
@@ -41,7 +39,6 @@ class BrewCli
     'jq',                         # Parse json in bash
     'mobile-shell',               # SSH like client for low quality connections aka mosh
     'mtr',                        # Debugging network connections
-    'node',                       # Node.js
     'nvm',                        # Node Version Manager
     'openssl',                    # Patched OpenSSL for latest security releases
     'pgcli',
