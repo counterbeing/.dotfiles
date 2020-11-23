@@ -5,7 +5,6 @@ export EDITOR=vim
 export VISUAL=vim
 export SHELL=/usr/local/bin/zsh
 
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -39,7 +38,7 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_BEEP
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -64,7 +63,7 @@ setopt HIST_BEEP
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rails command-not-found docker git-extras)
+plugins=(command-not-found docker git-extras)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -74,7 +73,6 @@ unsetopt share_history
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-
 #----------------------------------------------------------#
 # Completions
 # If completions are bugging you, you may need to run
@@ -82,7 +80,6 @@ unsetopt share_history
 #----------------------------------------------------------#
 
 zstyle ':completion:::git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
-
 
 # Add go
 fpath=("/Users/cory/go/bin/" $fpath)
@@ -96,10 +93,10 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # AWS Cli completion
 [ -f /usr/local/bin/aws_zsh_completer.sh ] && source /usr/local/bin/aws_zsh_completer.sh
 
-# if [ $commands[kubectl] ]; then
-#   source <(kubectl completion zsh)
-# fi
-
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+  source <(helm completion zsh)
+fi
 
 #----------------------------------------------------------#
 # Custom includes
@@ -119,12 +116,10 @@ export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
-
-
 # normal brew nvm shell config lines minus the 2nd one
 # lazy loading the bash completions does not save us meaningful shell startup time, so we won't do it
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion" # This loads nvm bash_completion
 
 # add our default nvm node (`nvm alias default 10.16.0`) to path without loading nvm
 export PATH="$NVM_DIR/versions/node/v$(<$NVM_DIR/alias/default)/bin:$PATH"
@@ -145,7 +140,6 @@ alias nvm="unalias nvm; [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/
 #   fi
 # }
 # add-zsh-hook chpwd load-nvmrc
-
 
 eval "$(direnv hook zsh)"
 
@@ -177,7 +171,6 @@ elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
   source ~/.linux_config
 fi
 
-
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
 [[ -f /Users/cory/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/cory/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
@@ -193,3 +186,4 @@ fi
 # zprof
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+source /usr/local/share/chpharos/chpharos.sh

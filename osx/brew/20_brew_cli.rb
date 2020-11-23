@@ -43,6 +43,7 @@ class BrewCli
     'openssl',                    # Patched OpenSSL for latest security releases
     'pgcli',
     'pick',                       # Search multiline strings fuzzily
+    'pinentry-mac',
     'postgresql',                 # Database for local servers
     'python',                     # Recent python
     # 'qt5',                        # used in headless browser testing
