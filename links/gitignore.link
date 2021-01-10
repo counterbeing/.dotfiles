@@ -19,3 +19,4 @@ tags
 .vscode
 .metadata_never_index
 .env
+.pry_history
