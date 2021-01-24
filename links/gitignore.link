@@ -20,3 +20,4 @@ tags
 .metadata_never_index
 .env
 .pry_history
+.ash_history
