@@ -21,3 +21,4 @@ tags
 .env
 .pry_history
 .ash_history
+__pycache__

@@ -28,11 +28,17 @@ ke() {
 # alias docker_kill_all="docker kill $(docker ps -q)"
 # alias docker_remove_all="docker rm $(docker ps -a -q)"
 # alias docker_remove_all_images="docker rmi $(docker images -q)"
-alias com=docker-compose
+alias com="docker compose"
 
 alias y="yarn"
 
+
+function pbj {
+  jwt decode $(pbpaste)
+}
+
 #Git
+alias gco='git checkout'
 alias gst='git status'
 alias gp="git push"
 alias gphm="git push heroku master"
@@ -41,6 +47,7 @@ alias gppm="git push production master"
 alias ggraph="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 alias glol="git log --oneline --graph --decorate"
 alias dif="git diff --color | diff-so-fancy | less"
+alias gd="git diff --color | diff-so-fancy | less"
 alias lab="https_proxy=socks5://localhost:8118 lab"
 
 alias kon="kontena"
