@@ -1,0 +1,40 @@
+[core]
+	excludesfile = /Users/cory/.gitignore
+	ignorecase = true
+[user]
+	name = Cory Logan
+	email = he@corylogan.com
+[push]
+	default = current
+[pull]
+	rebase = true
+[alias]
+	dif = "!f() { [ -z \"$GIT_PREFIX\" ] || cd \"$GIT_PREFIX\" && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+	amend = commit -a --amend --no-edit
+	unstage = reset HEAD --
+	rcm = commit -c HEAD --reset-author
+	rbm = !git fetch origin master && git rebase origin/master
+	set-origin = remote set-url origin
+  # Set upsteram to current branch on remote      
+  setup = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+[difftool "stree"]
+	cmd = stree \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "stree"]
+	# cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = stree \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
+[commit]
+	template = /Users/cory/.stCommitMsg
+[diff]
+	tool = /usr/local/bin/stree
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[log]
+	date = local
+[init]
+	defaultBranch = master
