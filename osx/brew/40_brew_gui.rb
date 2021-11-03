@@ -64,7 +64,7 @@ class BrewGui
         puts "    skipping #{r}"
       else
         puts "    installing #{r}"
-        system("brew cask install --appdir='/Applications' #{r}")
+        system("brew install --cask --appdir='/Applications' #{r}")
       end
     end
   end
