@@ -20,15 +20,13 @@ class BrewInstaller
   end
 
   def install_brew
+    puts 'Checking homebrew installation...'
     if Utils.which('brew')
       puts 'Homebrew already installed'
       `brew update`
     else
       puts 'Installing homebrew'
-      system(
-        'ruby -e "$(curl -fsSL ' \
-        'https://raw.githubusercontent.com/Homebrew/install/master/install)"'
-      )
+      `$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)`
     end
   end
 end
