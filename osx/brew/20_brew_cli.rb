@@ -6,7 +6,6 @@ class BrewCli
   MESSAGE = 'Installing Brew packages...'.freeze
 
   RECIPES = [
-    'Caskroom/cask/osxfuse',      # For mounting filesystems, use this alternate source because of kexts
     'ack',                        # Search inside of files
     'ansible',                    # System configuration/management
     'asciinema',
