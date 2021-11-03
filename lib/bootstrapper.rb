@@ -31,7 +31,7 @@ module Bootstrapper
   def platform
     @os ||= begin
       case RbConfig::CONFIG['host_os']
-      when /darwin|mac os/
+      when /darwin|mac os|darwin21/
         :macos
       when /linux/
         :linux
