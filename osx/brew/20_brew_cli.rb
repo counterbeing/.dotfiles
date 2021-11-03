@@ -66,7 +66,7 @@ class BrewCli
     'reattach-to-user-namespace', # Allows Tmux to interact with the system pasteboard via pbcopy etc
     'redis',
     'ruby-build',                 # Build ruby versions for rbenv
-    'sass',
+    'sassc',
     'siege',                      # Load testing
     'speedtest_cli',
     'ssh-copy-id',                # Copies ssh keys and puts in authorized on remote host
@@ -80,7 +80,7 @@ class BrewCli
     'tmux',                       # Terminal multiplexer, great for pairing
     'tor',
     'tree',                       # Display filesystem as tree in terminal
-    'unrar',                      # Unrar, that's all
+    'unar',                       # Unrar, that's all
     'owenthereal/upterm/upterm',
     'vim',                        # Best text editor ever
     'wget',                       # Curl alternative, some things use it

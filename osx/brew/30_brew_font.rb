@@ -17,7 +17,7 @@ class BrewFont
         puts "    skipping #{r}"
       else
         puts "    installing #{r}"
-        `brew cask install #{r}`
+        `brew install --cask #{r}`
       end
     end
   end
