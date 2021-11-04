@@ -40,7 +40,7 @@ class BrewGui
     'sonos',
     'sourcetree',
     'sourcetree',
-    'spectacle',       # Resize windows quickly
+    'rectangle',       # Resize windows quickly
     'spotify',
     'steam',
     'steam',

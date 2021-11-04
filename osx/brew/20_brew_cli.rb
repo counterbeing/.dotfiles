@@ -77,6 +77,7 @@ class BrewCli
     'tmate',                      # Easy remote pair sessions
     'tmux-cssh',                  # SSH into multiple computers
     'tmux',                       # Terminal multiplexer, great for pairing
+    'tmuxinator',
     'tor',
     'tree',                       # Display filesystem as tree in terminal
     'unar',                       # Unrar, that's all
