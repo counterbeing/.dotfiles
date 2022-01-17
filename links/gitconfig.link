@@ -17,6 +17,10 @@
 	set-origin = remote set-url origin
   # Set upsteram to current branch on remote      
   setup = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+  deltag = !sh -c 'git tag -d $1 && git push origin :refs/tags/$1' -
+  tagit = !sh -c 'git tag $1 && git push origin $1' -
+  bip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads
+
 [difftool "stree"]
 	cmd = stree \"$LOCAL\" \"$REMOTE\"
 	path = 

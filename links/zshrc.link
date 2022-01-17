@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # Profiling: To use uncomment here and at end of doc
 # zmodload zsh/zprof
 
@@ -109,8 +114,14 @@ source ~/.aliases
 #----------------------------------------------------------#
 
 # Add node path
-export NODE_PATH=/usr/local/share/npm/lib/node_modules
-export PATH="/usr/local/share/npm/bin:$PATH"
+# export NODE_PATH=/usr/local/share/npm/lib/node_modules
+# export PATH="/usr/local/share/npm/bin:$PATH"
+
+
+# Add rust path
+RUST_PATH="$HOME/.cargo/bin"
+export PATH="${RUST_PATH}:$PATH"
+
 
 eval "$(direnv hook zsh)"
 
@@ -165,3 +176,8 @@ export LESS=' -R -X -F '
 export PATH="/opt/homebrew/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/go/bin"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
