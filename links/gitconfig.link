@@ -20,6 +20,10 @@
   deltag = !sh -c 'git tag -d $1 && git push origin :refs/tags/$1' -
   tagit = !sh -c 'git tag $1 && git push origin $1' -
   bip = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads
+  tip = !sh -c 'git log --no-walk --tags --decorate --oneline'
+  wip = commit -am "WIP"  
+  ci = "git commit --allow-empty -m 'Commit to trigger CI'"
+
 
 [difftool "stree"]
 	cmd = stree \"$LOCAL\" \"$REMOTE\"
@@ -42,3 +46,4 @@
 	date = local
 [init]
 	defaultBranch = master
+

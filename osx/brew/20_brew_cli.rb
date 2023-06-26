@@ -9,47 +9,40 @@ class BrewCli
     'ack', # Search inside of files
     'ansible', # System configuration/management
     'asciinema',
-    'asdf',
+    'asdf', # Version manager for many languages
     'autoenv', # Automatically source .env files in any dir
     'awscli',
     'bash', # Updated bash
-    'bfg',
-    'cfssl',
-    'clamav', # Antivirus
-    'clang-format',
+    'bfg', # Git repo cleaner
+    'clang-format', # Code formatting for C
     'cmake', # Compiler
-    'cowsay',
+    'cowsay', # Fun
     'ctags', # Tagging for Vim
     'curl', # Updated
-    'diff-so-fancy',
-    'direnv',
-    'docker-clean',
-    'duplicity',
+    'diff-so-fancy', # Better git diffs
+    'direnv', # Automatically source .env files in any dir
     'exiftool',
     'fd',
     'ffmpeg',
-    'exa',
-    'bat',
-    'hyperfine',
-    'fzf',
+    'exa', # ls replacement
+    'bat', # cat replacement
+    'hyperfine', # Benchmarking
+    'fzf', # Fuzzy finder
     'ghostscript', # PDF support for imagemagick
-    'git-crypt',
     'git', # Version control
     'gnupg', # For securing messages
     'go',
-    'gpg-agent',
-    'heroku',
-    'highlight',
+    'gpg-agent', # For securing messages
+    'highlight', # Syntax highlighting
     'htop-osx', # Activity monitor
-    'httpie',
-    'hub',
+    'httpie', # HTTP client
+    'hub', # Github CLI
     'imagemagick', # Image manipulation
     'jpeg',
     'jq', # Parse json in bash
     'yq',
-    'jwt-cli',
-    'k9s',
-    'kafkacat',
+    'jwt-cli', # JWT token manipulation
+    'k9s', # Kubernetes CLI
     'kubectx',
     'lame',
     'libpng',
@@ -59,9 +52,9 @@ class BrewCli
     'mobile-shell', # SSH like client for low quality connections aka mosh
     'mtr', # Debugging network connections
     'openssl', # Patched OpenSSL for latest security releases
-    'pgcli',
+    'pgcli', # Postgres CLI
     'pick', # Search multiline strings fuzzily
-    'pinentry-mac',
+    'pinentry-mac', # For GPG
     'postgresql', # Database for local servers
     'python', # Recent python
     'reattach-to-user-namespace', # Allows Tmux to interact with the system pasteboard via pbcopy etc
@@ -70,25 +63,27 @@ class BrewCli
     'sassc',
     'siege', # Load testing
     'speedtest_cli',
+    'starship', # Shell prompt
     'ssh-copy-id', # Copies ssh keys and puts in authorized on remote host
     'terminal-notifier', # Send notifications to notification center
     'terraform',
     'the_silver_searcher', # Fast file searching
     'thefuck', # Automagic command correction
     'tig', # Beautiful git visualization
+    'tldr', # Cliff notes for man pages
     'tmate', # Easy remote pair sessions
     'tmux-cssh', # SSH into multiple computers
     'tmux', # Terminal multiplexer, great for pairing
-    'tmuxinator',
-    'tor',
+    'tmuxinator', #
     'tree', # Display filesystem as tree in terminal
     'unar', # Unrar, that's all
     'owenthereal/upterm/upterm',
     'vim', # Best text editor ever
     'wget', # Curl alternative, some things use it
     'youtube-dl',
+    'yq', # jq for yaml
     'zlib', # Compression, useful for siege
-    'zsh-completions', # Various zsh completions
+    # 'zsh-completions', # Various zsh completions
     'zsh', # Like bash, but way better
     'zsh-syntax-highlighting', # syntax highlighting as you type
   ].freeze

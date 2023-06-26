@@ -23,21 +23,22 @@ module Bootstrapper
   private
 
   def callable?
-    return true unless defined? self::PLATFORMS
+    return true unless defined?(self::PLATFORMS)
     return true if self::PLATFORMS.include?(platform)
     false
   end
 
   def platform
-    @os ||= begin
-      case RbConfig::CONFIG['host_os']
-      when /darwin|mac os|darwin21/
-        :macos
-      when /linux/
-        :linux
-      else
-        abort 'Your OS is not supported'
+    @os ||=
+      begin
+        case RbConfig::CONFIG['host_os']
+        when /darwin|mac os|darwin21/
+          :macos
+        when /linux/
+          :linux
+        else
+          abort 'Your OS is not supported'
+        end
       end
-    end
   end
 end

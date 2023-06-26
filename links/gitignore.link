@@ -22,3 +22,4 @@ tags
 .pry_history
 .ash_history
 __pycache__
+.irb_history
