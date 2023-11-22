@@ -30,6 +30,7 @@ ke() {
 # alias docker_remove_all="docker rm $(docker ps -a -q)"
 # alias docker_remove_all_images="docker rmi $(docker images -q)"
 alias com="docker compose"
+alias dcr="docker compose down; docker compose up -d; docker compose logs -f"
 
 alias y="yarn"
 
@@ -51,6 +52,7 @@ alias dif="git diff --color | diff-so-fancy | less"
 alias gd="git diff --color | diff-so-fancy | less"
 alias lab="https_proxy=socks5://localhost:8118 lab"
 alias gpu="git pull"
+alias gcom="git commit"
 
 alias kon="kontena"
 
@@ -207,4 +209,70 @@ function git_match_upstream {
   git branch --set-upstream-to=origin/$CURRENT_BRANCH $CURRENT_BRANCH
 }
 
+# Checkout a git branch using fuzzy finder
+function gcof() {
+  git branch | fzf | xargs git checkout
+}
 
+repeat_cmd() {
+    local num=$1
+    shift
+
+    for ((i=1; i<=num; i++))
+    do
+        echo "Running command for the $i time(s)"
+        eval "$@"
+        exit_code=$?
+        if [ $exit_code -ne 0 ]; then
+            echo "Command failed with exit code $exit_code, exiting loop"
+            break
+        fi
+    done
+}
+
+
+fzf-git-branch() {
+    git rev-parse HEAD > /dev/null 2>&1 || return
+
+    git branch --color=always --all --sort=-committerdate |
+        grep -v HEAD |
+        fzf --height 50% --ansi --no-multi --preview-window right:65% \
+            --preview 'git log -n 50 --color=always --date=short --pretty="format:%C(auto)%cd %h%d %s" $(sed "s/.* //" <<< {})' |
+        sed "s/.* //"
+}
+
+fzf-git-checkout() {
+    git rev-parse HEAD > /dev/null 2>&1 || return
+
+    local branch
+
+    branch=$(fzf-git-branch)
+    if [[ "$branch" = "" ]]; then
+        echo "No branch selected."
+        return
+    fi
+
+    # If branch name starts with 'remotes/' then it is a remote branch. By
+    # using --track and a remote branch name, it is the same as:
+    # git checkout -b branchName --track origin/branchName
+    if [[ "$branch" = 'remotes/'* ]]; then
+        git checkout --track $branch
+    else
+        git checkout $branch;
+    fi
+}
+
+alias fgco="fzf-git-checkout"
+
+function git_main_branch() {
+  command git rev-parse --git-dir &>/dev/null || return
+  local ref
+  for ref in refs/{heads,remotes/{origin,upstream}}/{main,trunk}; do
+    if command git show-ref -q --verify $ref; then
+      echo ${ref:t}
+      return
+    fi
+  done
+  echo master
+}
+alias gprom="git pull --rebase origin ${git_main_branch}"
