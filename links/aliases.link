@@ -1,12 +1,12 @@
 # General
 alias refresh='source ~/.zshrc'
-alias c='code'
+alias c='cursor'
 alias vi='vim'
 alias ls='ls -alFG'
 alias pping="ping -a 8.8.8.8"
 alias ..="cd .."
 alias ll="ls"
-alias l="exa -lah"
+alias l="eza -lah"
 alias tlf="tail -f"
 alias ln='ln -v'
 alias mkdir='mkdir -p'
@@ -76,7 +76,6 @@ alias csd="cap staging deploy"
 # Ruby
 alias be="bundle exec"
 alias rake="noglob bundle exec rake"
-alias b="bundle"
 
 # Mac OS X
 # When airply or other audio goes wonky, this is handy.
@@ -148,7 +147,7 @@ function gre {
 }
 
 
-function serve {
+function serve-folder {
   port="${1:-1337}"
   ruby -run -e httpd . -p $port
 }
@@ -275,4 +274,7 @@ function git_main_branch() {
   done
   echo master
 }
-alias gprom="git pull --rebase origin ${git_main_branch}"
+
+function gprom() {
+  git pull --rebase origin $(git_main_branch)
+}
