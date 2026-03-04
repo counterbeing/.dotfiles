@@ -129,7 +129,6 @@ cask "font-roboto"
 # Mac App Store
 mas "Xcode", id: 497799835
 mas "Things", id: 904280696
-mas "Tomato 2", id: 1168153231
 mas "Amphetamine", id: 937984704
 mas "Kindle", id: 302584613
 mas "Keynote", id: 409183694
