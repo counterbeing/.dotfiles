@@ -18,9 +18,9 @@ if [ ! -f "$HOME/.gitconfig.local" ]; then
   echo "    We need a few details for this machine's git identity."
   echo "    (Stored in ~/.gitconfig.local — not tracked by the repo)"
   echo ""
-  printf "    Git name: "
+  printf "    Full name (e.g. 'Cory Logan'): "
   read -r GIT_NAME < /dev/tty
-  printf "    Git email: "
+  printf "    Email (e.g. 'you@example.com'): "
   read -r GIT_EMAIL < /dev/tty
   printf "    SSH signing key (from 1Password, e.g. 'ssh-ed25519 AAAA...'): "
   read -r GIT_SIGNINGKEY < /dev/tty

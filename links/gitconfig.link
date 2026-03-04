@@ -1,10 +1,6 @@
 [core]
 	excludesfile = ~/.gitignore
 	ignorecase = true
-[include]
-	# Machine-specific identity (user.name, user.email, user.signingkey)
-	# Created by install.sh if missing — edit ~/.gitconfig.local per machine
-	path = ~/.gitconfig.local
 [push]
 	default = current
 [pull]
@@ -38,3 +34,7 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
+[include]
+	# Machine-specific overrides (user.name, user.email, user.signingkey)
+	# Created by install.sh if missing — edit ~/.gitconfig.local per machine
+	path = ~/.gitconfig.local
