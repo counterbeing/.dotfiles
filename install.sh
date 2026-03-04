@@ -22,8 +22,6 @@ if [ ! -f "$HOME/.gitconfig.local" ]; then
   read -r GIT_NAME </dev/tty
   printf "    Email (e.g. 'you@example.com'): "
   read -r GIT_EMAIL </dev/tty
-  printf "    SSH signing key (from 1Password, e.g. 'ssh-ed25519 AAAA...'): "
-  read -r GIT_SIGNINGKEY </dev/tty
   echo ""
 fi
 
@@ -50,7 +48,10 @@ fi
 ###############################################################################
 # 1. Clone dotfiles repo (if not already present)
 ###############################################################################
-if [ ! -d "$DOTFILES_DIR" ]; then
+if [ -d "$DOTFILES_DIR" ]; then
+  echo "==> Updating dotfiles..."
+  git -C "$DOTFILES_DIR" pull --rebase || true
+else
   echo "==> Cloning dotfiles..."
   git clone https://github.com/counterbeing/.dotfiles "$DOTFILES_DIR"
 fi
@@ -144,8 +145,9 @@ if [ ! -f "$HOME/.gitconfig.local" ]; then
 [user]
 	name = $GIT_NAME
 	email = $GIT_EMAIL
-	signingkey = $GIT_SIGNINGKEY
 EOF
+  echo "    NOTE: Add your signing key later with:"
+  echo "    git config --file ~/.gitconfig.local user.signingkey 'ssh-ed25519 AAAA...'"
 else
   echo "==> Git identity already configured (~/.gitconfig.local exists)"
 fi
