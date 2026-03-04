@@ -4,10 +4,16 @@ Personal macOS development environment configuration.
 
 ## Getting Started
 
+One command on a fresh Mac:
+
 ```sh
-cd ~
-git clone https://github.com/counterbeing/.dotfiles
-cd .dotfiles
+curl -fsSL https://raw.githubusercontent.com/counterbeing/.dotfiles/master/install.sh | bash
+```
+
+Or if you've already cloned the repo:
+
+```sh
+cd ~/.dotfiles
 ./install.sh
 ```
 

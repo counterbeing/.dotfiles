@@ -1,29 +1,85 @@
 #!/usr/bin/env bash
-# Dotfiles installer — replaces the old Ruby bootstrap framework.
+# Dotfiles installer — run on a fresh Mac to get everything set up.
+#
+# One-liner:
+#   curl -fsSL https://raw.githubusercontent.com/counterbeing/.dotfiles/master/install.sh | bash
+#
 set -euo pipefail
 
-DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
+DOTFILES_DIR="$HOME/.dotfiles"
 
 echo "==> Dotfiles installer"
+echo ""
+
+###############################################################################
+# Collect all input upfront so the rest runs unattended
+###############################################################################
+if [ ! -f "$HOME/.gitconfig.local" ]; then
+  echo "    We need a few details for this machine's git identity."
+  echo "    (Stored in ~/.gitconfig.local — not tracked by the repo)"
+  echo ""
+  printf "    Git name: "
+  read -r GIT_NAME < /dev/tty
+  printf "    Git email: "
+  read -r GIT_EMAIL < /dev/tty
+  printf "    SSH signing key (from 1Password, e.g. 'ssh-ed25519 AAAA...'): "
+  read -r GIT_SIGNINGKEY < /dev/tty
+  echo ""
+fi
+
+# Cache sudo password upfront (needed for Xcode license)
+echo "==> You may be prompted for your sudo password..."
+sudo -v
+# Keep sudo alive for the duration of the script
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+###############################################################################
+# 0. Xcode Command Line Tools
+###############################################################################
+if ! xcode-select -p &>/dev/null; then
+  echo "==> Installing Xcode Command Line Tools..."
+  xcode-select --install
+  echo "    Waiting for installation to complete..."
+  until xcode-select -p &>/dev/null; do sleep 5; done
+fi
+
+###############################################################################
+# 1. Clone dotfiles repo (if not already present)
+###############################################################################
+if [ ! -d "$DOTFILES_DIR" ]; then
+  echo "==> Cloning dotfiles..."
+  git clone https://github.com/counterbeing/.dotfiles "$DOTFILES_DIR"
+fi
+cd "$DOTFILES_DIR"
 echo "    Source: $DOTFILES_DIR"
 
 ###############################################################################
-# 1. Homebrew
+# 2. Homebrew
 ###############################################################################
 if ! command -v brew &>/dev/null; then
   echo "==> Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ###############################################################################
-# 2. Brew Bundle
+# 3. Brew Bundle
 ###############################################################################
 echo "==> Running brew bundle..."
 brew bundle --file="$DOTFILES_DIR/Brewfile"
 
 ###############################################################################
-# 3. Symlink .link files
+# 4. Oh My Zsh (before symlinking so it doesn't clobber our zshrc)
+###############################################################################
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  echo "==> Installing Oh My Zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  # oh-my-zsh creates a default .zshrc; remove it so our symlink takes over
+  rm -f "$HOME/.zshrc"
+fi
+
+###############################################################################
+# 5. Symlink .link files
 ###############################################################################
 echo "==> Symlinking dotfiles..."
 for src in "$DOTFILES_DIR"/links/*.link; do
@@ -41,17 +97,7 @@ for src in "$DOTFILES_DIR"/links/*.link; do
 done
 
 ###############################################################################
-# 4. Oh My Zsh
-###############################################################################
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  echo "==> Installing Oh My Zsh..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-  # oh-my-zsh replaces .zshrc; restore ours
-  [ -f "$HOME/.zshrc.pre-oh-my-zsh" ] && mv "$HOME/.zshrc.pre-oh-my-zsh" "$HOME/.zshrc"
-fi
-
-###############################################################################
-# 5. macOS preferences
+# 6. macOS preferences
 ###############################################################################
 if [[ "$(uname)" == "Darwin" ]]; then
   echo "==> Setting macOS preferences..."
@@ -59,7 +105,7 @@ if [[ "$(uname)" == "Darwin" ]]; then
 fi
 
 ###############################################################################
-# 6. iTerm2 plist
+# 7. iTerm2 plist
 ###############################################################################
 if [ -f "$DOTFILES_DIR/plists/com.googlecode.iterm2.plist" ]; then
   echo "==> Copying iTerm2 preferences..."
@@ -68,7 +114,7 @@ if [ -f "$DOTFILES_DIR/plists/com.googlecode.iterm2.plist" ]; then
 fi
 
 ###############################################################################
-# 7. Xcode license
+# 8. Xcode license
 ###############################################################################
 if command -v xcodebuild &>/dev/null; then
   echo "==> Accepting Xcode license..."
@@ -76,50 +122,70 @@ if command -v xcodebuild &>/dev/null; then
 fi
 
 ###############################################################################
-# 8. Claude Code
+# 9. Claude Code & OpenAI Codex
 ###############################################################################
 echo "==> Installing Claude Code..."
 curl -fsSL https://claude.ai/install.sh | bash
 
 echo "==> Installing OpenAI Codex..."
+eval "$(/opt/homebrew/bin/brew shellenv)"
 npm install -g @openai/codex
 
 ###############################################################################
-# 9. Git identity (per-machine)
+# 10. Git identity (per-machine)
 ###############################################################################
 if [ ! -f "$HOME/.gitconfig.local" ]; then
-  echo "==> Setting up Git identity for this machine..."
-  echo "    (Stored in ~/.gitconfig.local — not tracked by the repo)"
-  printf "    Name: "
-  read -r git_name
-  printf "    Email: "
-  read -r git_email
+  echo "==> Writing git identity to ~/.gitconfig.local..."
   cat > "$HOME/.gitconfig.local" <<EOF
 [user]
-	name = $git_name
-	email = $git_email
+	name = $GIT_NAME
+	email = $GIT_EMAIL
+	signingkey = $GIT_SIGNINGKEY
 EOF
-  echo "    Written to ~/.gitconfig.local"
 else
   echo "==> Git identity already configured (~/.gitconfig.local exists)"
 fi
 
 ###############################################################################
-# 10. Neovim config
+# 11. 1Password SSH agent
+###############################################################################
+echo "==> Configuring 1Password SSH agent..."
+mkdir -p "$HOME/.config/1Password/ssh"
+if [ ! -f "$HOME/.config/1Password/ssh/agent.toml" ]; then
+  cat > "$HOME/.config/1Password/ssh/agent.toml" <<'EOF'
+# 1Password SSH agent config
+# https://developer.1password.com/docs/ssh/agent/config
+[[ssh-keys]]
+# Allow all keys from 1Password vaults
+EOF
+fi
+
+# Ensure SSH config includes the 1Password agent socket
+OP_AGENT_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+SSH_CONFIG="$HOME/.ssh/config"
+mkdir -p "$HOME/.ssh"
+chmod 700 "$HOME/.ssh"
+if ! grep -q "IdentityAgent.*1password" "$SSH_CONFIG" 2>/dev/null; then
+  printf '\nHost *\n  IdentityAgent "%s"\n' "$OP_AGENT_SOCK" >> "$SSH_CONFIG"
+  echo "    Added 1Password agent to ~/.ssh/config"
+fi
+
+###############################################################################
+# 12. Neovim config
 ###############################################################################
 echo "==> Setting up Neovim config..."
 mkdir -p "$HOME/.config"
 ln -sfn "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 
 ###############################################################################
-# 11. Ghostty config
+# 13. Ghostty config
 ###############################################################################
 echo "==> Setting up Ghostty config..."
 mkdir -p "$HOME/.config/ghostty"
 ln -sfn "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 
 ###############################################################################
-# 12. Dock layout
+# 14. Dock layout
 ###############################################################################
 if command -v dockutil &>/dev/null; then
   # Only set up default Dock if it hasn't been customized (still has default Apple apps)
@@ -139,3 +205,4 @@ fi
 ###############################################################################
 echo ""
 echo "==> All done! Open a new terminal to pick up changes."
+echo "    Remember to enable 'SSH Agent' in 1Password > Settings > Developer"
