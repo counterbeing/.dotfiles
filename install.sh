@@ -79,7 +79,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # 3. Brew Bundle
 ###############################################################################
 echo "==> Running brew bundle..."
-brew bundle --verbose --file="$DOTFILES_DIR/Brewfile"
+brew bundle --verbose --file="$DOTFILES_DIR/Brewfile" || echo "    Some Brewfile entries failed (see above). Continuing..."
 
 ###############################################################################
 # 4. Oh My Zsh (before symlinking so it doesn't clobber our zshrc)

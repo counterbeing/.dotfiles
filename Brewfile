@@ -135,5 +135,3 @@ mas "Kindle", id: 302584613
 mas "Keynote", id: 409183694
 mas "Pages", id: 409201541
 mas "Numbers", id: 409203825
-mas "ImageOptim", id: 1246969117
-mas "AudioBookBinder", id: 413969927
