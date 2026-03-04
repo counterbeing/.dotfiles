@@ -128,11 +128,11 @@ fi
 # 9. Claude Code & OpenAI Codex
 ###############################################################################
 echo "==> Installing Claude Code..."
-curl -fsSL https://claude.ai/install.sh | bash
+curl -fsSL https://claude.ai/install.sh | bash || echo "    Claude Code install failed (retry manually later)"
 
 echo "==> Installing OpenAI Codex..."
 eval "$(/opt/homebrew/bin/brew shellenv)"
-npm install -g @openai/codex
+npm install -g @openai/codex || echo "    Codex install failed (retry manually later)"
 
 ###############################################################################
 # 10. Git identity check
