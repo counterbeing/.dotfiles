@@ -1,77 +1,67 @@
-Feel free to take my dotfiles for a spin.
+# Dotfiles
+
+Personal macOS development environment configuration.
 
 ## Getting Started
-We'll clone the repo locally into your home folder, in a folder called
-.dotfiles, and also grab a couple of other repos by doing so recursively. Then
-we simply run the bootstrap file.
 
-```
+```sh
 cd ~
-git clone --recursive https://github.com/counterbeing/.dotfiles
+git clone https://github.com/counterbeing/.dotfiles
 cd .dotfiles
-ruby bootstrap.rb
+./install.sh
 ```
 
-## Don't Forget
-There are a few things that these scripts will replace, or make significant
-changes to. You just need to be aware of that and act accordingly
+## What it does
 
-- Replaces your iTerm preferences
-- Sets Zsh as your default shell (just try it, it's easy to change.)
-- A few other things, just read the code.
+1. Installs [Homebrew](https://brew.sh) if missing
+2. Installs all CLI tools, GUI apps, fonts, and Mac App Store apps via `Brewfile`
+3. Symlinks all `links/*.link` files to `~/` (e.g. `zshrc.link` → `~/.zshrc`)
+4. Installs [Oh My Zsh](https://ohmyz.sh) if missing
+5. Applies macOS system preferences (`macos/defaults.sh`)
+6. Copies iTerm2 preferences
+7. Sets up [Neovim](https://neovim.io) config (lazy.nvim + LSP + Treesitter)
 
-There are a few odds and ends that are too custom or private for a github repo.
-You might think about moving these.
+## Structure
 
-- ~/.ssh
-- ~/.gnupg
-- ~/.gitconfig
+```
+.dotfiles/
+├── install.sh          # Main bootstrap script
+├── Brewfile            # Homebrew dependencies
+├── links/              # Dotfiles symlinked to ~/
+├── nvim/               # Neovim config (symlinked to ~/.config/nvim)
+├── macos/defaults.sh   # macOS system preferences
+└── plists/             # Application preference plists
+```
 
+## Tmux
 
-## Documentations of Configuration
+Leader is `Ctrl-a` (overrides default `Ctrl-b`). `Ctrl-a a` sends literal `Ctrl-a`.
 
-### Tmux
-I've overwritten some of the tmux defaults to give a more native feel, and
-easier to use key bindingings. The first thing to know is that the leader for
-tmux is now mapped to `^ + a`. It's worth noting that this overrides it's
-default behavior of jumping to the beginning of a line. To get to that behavior
-there is an escape sequence `^ + a a`.
+| Command         | Result                          |
+|-----------------|---------------------------------|
+| `^a ?`          | Help menu                       |
+| `^a c`          | New window                      |
+| `^a %`          | Vertical split                  |
+| `^a "`          | Horizontal split                |
+| `^a h/j/k/l`   | Navigate panes                  |
+| `^a ^a`         | Toggle last window              |
 
-| command       | result                                                     |
-|---------------|------------------------------------------------------------|
-| `^ + a ?`     | Learn to help yourself by accessing the help menu for tmux |
-| `^ + a c`     | Create a new tmux window                                   |
-| `^ + a %`     | Create a vertical split pane within a window               |
-| `^ + a "`     | Create a horizontal split pane within a window             |
-| `^ + a h`     | Move to a pane to the left.                                |
-| `^ + a j`     | Move a  pane down.                                         |
-| `^ + a k`     | Move up a pane.                                            |
-| `^ + a l`     | Move right a pane                                          |
-| `^ + a ^ + a` | Quickly toggle between most recently used windows          |
+## Neovim
 
-### Vim
-Refer here for info on vim configuration https://github.com/counterbeing/Vim-Configuration
+Leader is `,`. Key mappings:
 
+| Mapping         | Action                          |
+|-----------------|---------------------------------|
+| `,n`            | Toggle file tree (Neo-tree)     |
+| `,t`            | Find files (Telescope)          |
+| `,fg`           | Live grep (Telescope)           |
+| `,fb`           | Buffers (Telescope)             |
+| `gd`            | Go to definition (LSP)          |
+| `gr`            | Find references (LSP)           |
+| `K`             | Hover docs (LSP)                |
+| `,rn`           | Rename symbol (LSP)             |
+| `,ca`           | Code actions (LSP)              |
 
-### Warranty
+## Warranty
 
-There is none. If you have custom configurations on our system, you need to
-look at all of the code to be sure this doesn't do something you don't like.
-
-
-### Todo
-- Remove 1p mini from menu bar
-- enable 1p in alfred
-- disable autosubmit in 1p
-- Set sync folder
-- Add casks dir to alfred search
-- Don't make google chrome ask to save passwords... unless HTTP Basic auth
-- Look into rbenv plugin to avoid rehash
-- Think about installing default gems
-- Generate `.local_config` file if it does not exist
-
-### Done
-Mar 25, 2015
-- Cask installers need to look for the `.app` extension for a match
-- Set owner on /usr/local
-- Setting global for brew installation should happen after brew installs
+None. Read the code before running.

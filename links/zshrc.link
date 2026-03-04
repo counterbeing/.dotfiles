@@ -1,32 +1,18 @@
 # # Profiling: To use uncomment here and at end of doc
 # zmodload zsh/zprof
 
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 export SHELL=/opt/homebrew/bin/zsh
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-if [ ! -d ~/.oh-my-zsh ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-  # It replaces our .zshrc if it exists already, and that's no good.
-  rm .zshrc
-  mv .zshrc.pre-oh-my-zsh .zshrc
-fi
-
-# Path to your oh-my-zsh installation.
+#----------------------------------------------------------#
+# Oh My Zsh
+#----------------------------------------------------------#
 export ZSH=~/.oh-my-zsh
-
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+ZSH_THEME=""  # Disabled — starship handles the prompt
 HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=60
+DISABLE_AUTO_TITLE="true"
 
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -37,147 +23,63 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_BEEP
 
-# Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(command-not-found docker git-extras)
 
 source $ZSH/oh-my-zsh.sh
 
 unsetopt share_history
 
-[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# zsh-syntax-highlighting (homebrew location)
+[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #----------------------------------------------------------#
 # Completions
-# If completions are bugging you, you may need to run
-# rm -f ~/.zcompdump; compinit
 #----------------------------------------------------------#
 
-zstyle ':completion:::git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
-
-# Add go
-fpath=("/Users/cory/go/bin/" $fpath)
-
-# Add homebrew to the completion path
-fpath=("/usr/local/bin/" $fpath)
-
-# For zsh completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/opt/homebrew/share/zsh-completions $fpath)
 
 # AWS Cli completion
-[ -f /usr/local/bin/aws_zsh_completer.sh ] && source /usr/local/bin/aws_zsh_completer.sh
+[ -f /opt/homebrew/bin/aws_zsh_completer.sh ] && source /opt/homebrew/bin/aws_zsh_completer.sh
 
+# Lazy-load kubectl and helm completions for faster startup
 if [ $commands[kubectl] ]; then
-  source <(kubectl completion zsh)
-  source <(helm completion zsh)
+  kubectl() { unfunction kubectl; source <(command kubectl completion zsh); command kubectl "$@" }
+  helm() { unfunction helm; source <(command helm completion zsh); command helm "$@" }
 fi
 
 #----------------------------------------------------------#
 # Custom includes
-# Customize to your needs...
 #----------------------------------------------------------#
 source ~/.aliases
 
 #----------------------------------------------------------#
-# PATH Settings
+# PATH
 #----------------------------------------------------------#
-
-# Add node path
-# export NODE_PATH=/usr/local/share/npm/lib/node_modules
-# export PATH="/usr/local/share/npm/bin:$PATH"
-
-
-# Add rust path
-RUST_PATH="$HOME/.cargo/bin"
-export PATH="${RUST_PATH}:$PATH"
-
+export PATH="/opt/homebrew/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:$HOME/go/bin:$HOME/.local/bin:$HOME/.cache/lm-studio/bin"
 
 eval "$(direnv hook zsh)"
 
-# thefuck Integration
-# https://github.com/nvbn/thefuck
-eval "$(thefuck --alias)"
-
-# sbin path for brew
-# export PATH="/usr/local/sbin:/anaconda3/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
+# Lazy-load thefuck for faster startup
+fuck() { unfunction fuck; eval "$(thefuck --alias)"; fuck "$@" }
 
 # Fixes issues with too many threads
 ulimit -n 10240
 
-# Load local configuration file if it exists, this is a away of extending
-# this configuration, without commiting changes that could include
-# sensitive environment variables, or just things that won't be usefule
-# anywhere else. This file will be created for you if it does not already
-# exist.
+# Load local configuration file if it exists
 [ -f ~/.local_config ] && source ~/.local_config
-
-# Load up any input ZLE things, reference here:
-source ~/.zsh_input
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [[ "$(uname)" == "Darwin" ]]; then
-elif [[ "$(expr substr $(uname -s) 1 5)" == "Linux" ]]; then
-  source ~/.linux_config
-fi
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/cory/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/cory/.config/yarn/global/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/cory/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/cory/.config/yarn/global/node_modules/tabtab/.completions/sls.zsh
-
-# tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
-
-# End Profiling
-# zprof
-#
-
-# Enable syntax highlghting in less
-LESSPIPE=$(which src-hilite-lesspipe.sh)
-export LESSOPEN="| ${LESSPIPE} %s"
+# Enable syntax highlighting in less
+export LESSOPEN="| /opt/homebrew/bin/src-hilite-lesspipe.sh %s"
 export LESS=' -R -X -F '
-
-export PATH="/opt/homebrew/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH:$HOME/go/bin"
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 eval "$(starship init zsh)"
 
-# Workaround for tmuxinator bug 
+# Workaround for tmuxinator bug
 unset GEM_HOME
 
-
-export PNPM_HOME="/Users/cory/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+if [ -f "$HOME/.config/fabric/fabric-bootstrap.inc" ]; then . "$HOME/.config/fabric/fabric-bootstrap.inc"; fi
+eval "$(mise activate zsh)"
