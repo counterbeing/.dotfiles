@@ -19,11 +19,11 @@ if [ ! -f "$HOME/.gitconfig.local" ]; then
   echo "    (Stored in ~/.gitconfig.local — not tracked by the repo)"
   echo ""
   printf "    Full name (e.g. 'Cory Logan'): "
-  read -r GIT_NAME < /dev/tty
+  read -r GIT_NAME </dev/tty
   printf "    Email (e.g. 'you@example.com'): "
-  read -r GIT_EMAIL < /dev/tty
+  read -r GIT_EMAIL </dev/tty
   printf "    SSH signing key (from 1Password, e.g. 'ssh-ed25519 AAAA...'): "
-  read -r GIT_SIGNINGKEY < /dev/tty
+  read -r GIT_SIGNINGKEY </dev/tty
   echo ""
 fi
 
@@ -31,7 +31,11 @@ fi
 echo "==> You may be prompted for your sudo password..."
 sudo -v
 # Keep sudo alive for the duration of the script
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
+done 2>/dev/null &
 
 ###############################################################################
 # 0. Xcode Command Line Tools
@@ -110,7 +114,7 @@ fi
 if [ -f "$DOTFILES_DIR/plists/com.googlecode.iterm2.plist" ]; then
   echo "==> Copying iTerm2 preferences..."
   cp "$DOTFILES_DIR/plists/com.googlecode.iterm2.plist" \
-     "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+    "$HOME/Library/Preferences/com.googlecode.iterm2.plist"
 fi
 
 ###############################################################################
@@ -136,7 +140,7 @@ npm install -g @openai/codex
 ###############################################################################
 if [ ! -f "$HOME/.gitconfig.local" ]; then
   echo "==> Writing git identity to ~/.gitconfig.local..."
-  cat > "$HOME/.gitconfig.local" <<EOF
+  cat >"$HOME/.gitconfig.local" <<EOF
 [user]
 	name = $GIT_NAME
 	email = $GIT_EMAIL
@@ -152,7 +156,7 @@ fi
 echo "==> Configuring 1Password SSH agent..."
 mkdir -p "$HOME/.config/1Password/ssh"
 if [ ! -f "$HOME/.config/1Password/ssh/agent.toml" ]; then
-  cat > "$HOME/.config/1Password/ssh/agent.toml" <<'EOF'
+  cat >"$HOME/.config/1Password/ssh/agent.toml" <<'EOF'
 # 1Password SSH agent config
 # https://developer.1password.com/docs/ssh/agent/config
 [[ssh-keys]]
@@ -166,7 +170,7 @@ SSH_CONFIG="$HOME/.ssh/config"
 mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"
 if ! grep -q "IdentityAgent.*1password" "$SSH_CONFIG" 2>/dev/null; then
-  printf '\nHost *\n  IdentityAgent "%s"\n' "$OP_AGENT_SOCK" >> "$SSH_CONFIG"
+  printf '\nHost *\n  IdentityAgent "%s"\n' "$OP_AGENT_SOCK" >>"$SSH_CONFIG"
   echo "    Added 1Password agent to ~/.ssh/config"
 fi
 
