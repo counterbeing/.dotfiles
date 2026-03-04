@@ -7,7 +7,7 @@ Personal macOS development environment configuration.
 One command on a fresh Mac:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/counterbeing/.dotfiles/master/install.sh | bash
+bash <(curl -fsSL https://raw.githubusercontent.com/counterbeing/.dotfiles/master/install.sh)
 ```
 
 Or if you've already cloned the repo:
@@ -22,10 +22,10 @@ cd ~/.dotfiles
 1. Installs [Homebrew](https://brew.sh) if missing
 2. Installs all CLI tools, GUI apps, fonts, and Mac App Store apps via `Brewfile`
 3. Symlinks all `links/*.link` files to `~/` (e.g. `zshrc.link` → `~/.zshrc`)
-4. Installs [Oh My Zsh](https://ohmyz.sh) if missing
-5. Applies macOS system preferences (`macos/defaults.sh`)
-6. Copies iTerm2 preferences
-7. Sets up [Neovim](https://neovim.io) config (lazy.nvim + LSP + Treesitter)
+4. Applies macOS system preferences (`macos/defaults.sh`)
+5. Copies iTerm2 preferences
+6. Sets up [Neovim](https://neovim.io) config (lazy.nvim + LSP + Treesitter)
+7. Enables Touch ID for sudo (with tmux support)
 
 ## Structure
 

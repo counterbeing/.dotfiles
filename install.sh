@@ -2,7 +2,7 @@
 # Dotfiles installer — run on a fresh Mac to get everything set up.
 #
 # One-liner:
-#   curl -fsSL https://raw.githubusercontent.com/counterbeing/.dotfiles/master/install.sh | bash
+#   bash <(curl -fsSL https://raw.githubusercontent.com/counterbeing/.dotfiles/master/install.sh)
 #
 set -euo pipefail
 
