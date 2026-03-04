@@ -23,6 +23,14 @@ if [ ! -f "$HOME/.gitconfig.local" ]; then
   printf "    Email (e.g. 'you@example.com'): "
   read -r GIT_EMAIL </dev/tty
   echo ""
+  echo "==> Writing git identity to ~/.gitconfig.local..."
+  cat >"$HOME/.gitconfig.local" <<EOF
+[user]
+	name = $GIT_NAME
+	email = $GIT_EMAIL
+EOF
+  echo "    NOTE: Add your signing key later with:"
+  echo "    git config --file ~/.gitconfig.local user.signingkey 'ssh-ed25519 AAAA...'"
 fi
 
 # Cache sudo password upfront (needed for Xcode license)
@@ -137,20 +145,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 npm install -g @openai/codex
 
 ###############################################################################
-# 10. Git identity (per-machine)
+# 10. Git identity check
 ###############################################################################
-if [ ! -f "$HOME/.gitconfig.local" ]; then
-  echo "==> Writing git identity to ~/.gitconfig.local..."
-  cat >"$HOME/.gitconfig.local" <<EOF
-[user]
-	name = $GIT_NAME
-	email = $GIT_EMAIL
-EOF
-  echo "    NOTE: Add your signing key later with:"
-  echo "    git config --file ~/.gitconfig.local user.signingkey 'ssh-ed25519 AAAA...'"
-else
-  echo "==> Git identity already configured (~/.gitconfig.local exists)"
-fi
+echo "==> Git identity: ~/.gitconfig.local"
 
 ###############################################################################
 # 11. 1Password SSH agent
