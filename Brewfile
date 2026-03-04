@@ -125,7 +125,6 @@ cask "zoom"
 # Fonts
 cask "font-meslo-for-powerline"
 cask "font-m-plus-1"
-cask "font-clear-sans"
 cask "font-roboto"
 
 # Mac App Store
