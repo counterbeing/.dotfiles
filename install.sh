@@ -204,6 +204,20 @@ if command -v dockutil &>/dev/null; then
 fi
 
 ###############################################################################
+# 15. Touch ID for sudo (with tmux support via pam_reattach)
+###############################################################################
+SUDO_LOCAL="/etc/pam.d/sudo_local"
+if [ ! -f "$SUDO_LOCAL" ]; then
+  echo "==> Enabling Touch ID for sudo (with tmux support)..."
+  sudo tee "$SUDO_LOCAL" >/dev/null <<'EOF'
+auth       optional       /opt/homebrew/lib/pam/pam_reattach.so
+auth       sufficient     pam_tid.so
+EOF
+else
+  echo "==> Touch ID for sudo already configured"
+fi
+
+###############################################################################
 # Done
 ###############################################################################
 echo ""
