@@ -1,6 +1,5 @@
 # Taps
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "owenthereal/upterm"
 tap "phasehq/cli"
 tap "oven-sh/bun"
@@ -124,8 +123,8 @@ cask "zed"
 cask "zoom"
 
 # Fonts
-cask "font-meslo-lg-for-powerline"
-cask "font-m-plus"
+cask "font-meslo-for-powerline"
+cask "font-m-plus-1"
 cask "font-clear-sans"
 cask "font-roboto"
 
