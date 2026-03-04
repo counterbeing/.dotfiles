@@ -83,6 +83,7 @@ brew "wget"
 brew "yq"
 brew "yt-dlp"
 brew "zsh"
+brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 
 # Casks (GUI Apps)

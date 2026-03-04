@@ -6,13 +6,11 @@ export VISUAL=nvim
 export SHELL=/opt/homebrew/bin/zsh
 
 #----------------------------------------------------------#
-# Oh My Zsh
+# History
 #----------------------------------------------------------#
-export ZSH=~/.oh-my-zsh
-ZSH_THEME=""  # Disabled — starship handles the prompt
-HYPHEN_INSENSITIVE="true"
-export UPDATE_ZSH_DAYS=60
-DISABLE_AUTO_TITLE="true"
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
 
 setopt EXTENDED_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
@@ -22,24 +20,28 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_BEEP
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
 
-plugins=(command-not-found docker git-extras)
+#----------------------------------------------------------#
+# Shell options
+#----------------------------------------------------------#
+setopt AUTO_CD
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt INTERACTIVE_COMMENTS
 
-source $ZSH/oh-my-zsh.sh
-
-unsetopt share_history
-
-# zsh-syntax-highlighting (homebrew location)
-[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
-  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 #----------------------------------------------------------#
 # Completions
 #----------------------------------------------------------#
-
 fpath=(/opt/homebrew/share/zsh-completions $fpath)
+autoload -Uz compinit
+compinit
 
-# AWS Cli completion
+# AWS CLI completion
 [ -f /opt/homebrew/bin/aws_zsh_completer.sh ] && source /opt/homebrew/bin/aws_zsh_completer.sh
 
 # Lazy-load kubectl and helm completions for faster startup
@@ -47,6 +49,10 @@ if [ $commands[kubectl] ]; then
   kubectl() { unfunction kubectl; source <(command kubectl completion zsh); command kubectl "$@" }
   helm() { unfunction helm; source <(command helm completion zsh); command helm "$@" }
 fi
+
+# zsh-syntax-highlighting (homebrew location)
+[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #----------------------------------------------------------#
 # Custom includes

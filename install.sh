@@ -82,17 +82,7 @@ echo "==> Running brew bundle..."
 brew bundle --verbose --file="$DOTFILES_DIR/Brewfile" || echo "    Some Brewfile entries failed (see above). Continuing..."
 
 ###############################################################################
-# 4. Oh My Zsh (before symlinking so it doesn't clobber our zshrc)
-###############################################################################
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  echo "==> Installing Oh My Zsh..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-  # oh-my-zsh creates a default .zshrc; remove it so our symlink takes over
-  rm -f "$HOME/.zshrc"
-fi
-
-###############################################################################
-# 5. Symlink .link files
+# 4. Symlink .link files
 ###############################################################################
 echo "==> Symlinking dotfiles..."
 for src in "$DOTFILES_DIR"/links/*.link; do
