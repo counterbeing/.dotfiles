@@ -117,7 +117,16 @@ if [ -f "$DOTFILES_DIR/plists/com.googlecode.iterm2.plist" ]; then
 fi
 
 ###############################################################################
-# 8. Xcode license
+# 8. Rectangle preferences
+###############################################################################
+if [ -f "$DOTFILES_DIR/plists/com.knollsoft.Rectangle.plist" ]; then
+  echo "==> Copying Rectangle preferences..."
+  cp "$DOTFILES_DIR/plists/com.knollsoft.Rectangle.plist" \
+    "$HOME/Library/Preferences/com.knollsoft.Rectangle.plist"
+fi
+
+###############################################################################
+# 9. Xcode license
 ###############################################################################
 if command -v xcodebuild &>/dev/null; then
   echo "==> Accepting Xcode license..."
