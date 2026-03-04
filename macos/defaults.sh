@@ -50,6 +50,14 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
+# Trackpad/mouse speed (0.0–3.0, default is ~1.5)
+defaults write -g com.apple.trackpad.scaling -float 2.5
+defaults write -g com.apple.mouse.scaling -float 2.5
+
+# Fast key repeat and short delay before repeat
+defaults write -g KeyRepeat -int 2
+defaults write -g InitialKeyRepeat -int 15
+
 # Snap-to-grid for desktop icons
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist 2>/dev/null || true
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist 2>/dev/null || true

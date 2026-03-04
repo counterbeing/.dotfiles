@@ -201,8 +201,9 @@ ln -sfn "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 # 14. Dock layout
 ###############################################################################
 if command -v dockutil &>/dev/null; then
-  # Only set up default Dock if it hasn't been customized (still has default Apple apps)
-  if dockutil --list | grep -q "com.apple.launchpad.launcher" 2>/dev/null; then
+  # Only set up default Dock if it looks like a fresh macOS install
+  # (has default Apple apps like Maps, FaceTime, etc.)
+  if dockutil --list 2>/dev/null | grep -qE "Maps|FaceTime|TV|News|Freeform"; then
     echo "==> Setting up Dock (default layout)..."
     dockutil --remove all --no-restart
     dockutil --add /Applications/Ghostty.app --no-restart
@@ -211,6 +212,8 @@ if command -v dockutil &>/dev/null; then
   else
     echo "==> Dock appears customized, skipping"
   fi
+else
+  echo "==> dockutil not found, skipping Dock setup"
 fi
 
 ###############################################################################
