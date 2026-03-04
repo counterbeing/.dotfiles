@@ -1,5 +1,4 @@
 # Taps
-tap "homebrew/bundle"
 tap "owenthereal/upterm"
 tap "phasehq/cli"
 tap "oven-sh/bun"
