@@ -149,7 +149,18 @@ npm install -g @openai/codex || echo "    Codex install failed (retry manually l
 echo "==> Git identity: ~/.gitconfig.local"
 
 ###############################################################################
-# 11. 1Password SSH agent
+# 11. Local zsh overrides
+###############################################################################
+if [ ! -f "$HOME/.zshrc.local" ]; then
+  echo "==> Creating ~/.zshrc.local..."
+  cat >"$HOME/.zshrc.local" <<'EOF'
+# Machine-specific zsh configuration — not tracked by dotfiles.
+# Add PATH overrides, work-specific aliases, env vars, etc.
+EOF
+fi
+
+###############################################################################
+# 12. 1Password SSH agent
 ###############################################################################
 echo "==> Configuring 1Password SSH agent..."
 mkdir -p "$HOME/.config/1Password/ssh"

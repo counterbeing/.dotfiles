@@ -73,8 +73,8 @@ fuck() { unfunction fuck; eval "$(thefuck --alias)"; fuck "$@" }
 # Fixes issues with too many threads
 ulimit -n 10240
 
-# Load local configuration file if it exists
-[ -f ~/.local_config ] && source ~/.local_config
+# Load machine-specific overrides if they exist
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
