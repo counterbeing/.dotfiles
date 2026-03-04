@@ -2,7 +2,7 @@
 # macOS system preferences
 # Ported from osx/prefs/*.rb
 
-set -euo pipefail
+set -uo pipefail
 
 echo "Setting macOS preferences..."
 
@@ -64,7 +64,6 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Enable debug menus
-defaults write com.apple.addressbook ABShowDebugMenu -bool true
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 defaults write com.apple.appstore WebKitDeveloperExtras -bool true
