@@ -63,6 +63,15 @@ alias disable_gatekeeper="sudo spctl --master-disable"
 alias enable_gatekeeper="sudo spctl --master-enable"
 alias recent_syslog="syslog -k Time ge -24h"
 
+# Network
+alias myip='curl -s ifconfig.me'
+alias localip='ipconfig getifaddr en0'
+alias ports='sudo lsof -iTCP -sTCP:LISTEN -n -P'
+
+# Utility
+alias path='echo $PATH | tr ":" "\n"'
+alias duh='du -h -d1 | sort -h'
+
 #Postgres
 alias pgstart='pg_ctl -l $PGDATA/server.log start'
 alias pgstop='pg_ctl stop -m fast'
