@@ -50,9 +50,8 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-# Trackpad/mouse speed (0.0–3.0, default is ~1.5)
-defaults write -g com.apple.trackpad.scaling -float 2.5
-defaults write -g com.apple.mouse.scaling -float 2.5
+# Trackpad speed (0.0–3.0)
+defaults write -g com.apple.trackpad.scaling -float 1.5
 
 # Fast key repeat and short delay before repeat
 defaults write -g KeyRepeat -int 2
@@ -178,4 +177,4 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "Dock" \
   killall "${app}" &>/dev/null || true
 done
 
-echo "macOS preferences set. Some changes require a logout/restart to take effect."
+echo "macOS preferences set. Log out and back in for trackpad/keyboard changes to take effect."
