@@ -76,7 +76,7 @@ ulimit -n 10240
 # Load machine-specific overrides if they exist
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(fzf --zsh)"
 
 # Enable syntax highlighting in less
 export LESSOPEN="| /opt/homebrew/bin/src-hilite-lesspipe.sh %s"
