@@ -172,9 +172,9 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 # Restart affected apps
 ###############################################################################
 
-for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "Dock" \
-  "Finder" "Mail" "Messages" "Safari" "SystemUIServer"; do
+for app in "Activity Monitor" "Calendar" "Contacts" "Dock" \
+  "Finder" "Mail" "Messages" "Safari" "SystemUIServer" "cfprefsd"; do
   killall "${app}" &>/dev/null || true
 done
 
-echo "macOS preferences set. Log out and back in for trackpad/keyboard changes to take effect."
+echo "macOS preferences set. Trackpad/keyboard speed changes may need a logout to take effect."
